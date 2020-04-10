@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2524FE7E2440C381007ECF56 /* ChartHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524FE7D2440C381007ECF56 /* ChartHeaderCell.swift */; };
+		2524FE802440EB75007ECF56 /* TotalTypesCasesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524FE7F2440EB75007ECF56 /* TotalTypesCasesCell.swift */; };
+		2524FE822440ED52007ECF56 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524FE812440ED52007ECF56 /* UIView+Ext.swift */; };
+		25AE9C312440AD410093F3E2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE9C302440AD410093F3E2 /* CodeView.swift */; };
 		25C47F7A24408F5500A4F91F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F7924408F5500A4F91F /* AppDelegate.swift */; };
 		25C47F7C24408F5500A4F91F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F7B24408F5500A4F91F /* SceneDelegate.swift */; };
 		25C47F7E24408F5500A4F91F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F7D24408F5500A4F91F /* HomeViewController.swift */; };
@@ -14,9 +18,14 @@
 		25C47F8624408F5900A4F91F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25C47F8424408F5900A4F91F /* LaunchScreen.storyboard */; };
 		25C47F8E24408FDF00A4F91F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F8D24408FDF00A4F91F /* MainTabBarController.swift */; };
 		25D9AF7424409823006BD732 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D9AF7324409823006BD732 /* Colors.xcassets */; };
+		25D9AF7C2440A889006BD732 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2524FE7D2440C381007ECF56 /* ChartHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderCell.swift; sourceTree = "<group>"; };
+		2524FE7F2440EB75007ECF56 /* TotalTypesCasesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTypesCasesCell.swift; sourceTree = "<group>"; };
+		2524FE812440ED52007ECF56 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		25AE9C302440AD410093F3E2 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		25C47F7624408F5500A4F91F /* Covid-19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C47F7924408F5500A4F91F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25C47F7B24408F5500A4F91F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +35,7 @@
 		25C47F8724408F5900A4F91F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25C47F8D24408FDF00A4F91F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		25D9AF7324409823006BD732 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +49,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2524FE7A2440C35E007ECF56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2524FE7C2440C375007ECF56 /* Cells */,
+				2524FE7B2440C367007ECF56 /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2524FE7B2440C367007ECF56 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				25C47F7D24408F5500A4F91F /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2524FE7C2440C375007ECF56 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2524FE7D2440C381007ECF56 /* ChartHeaderCell.swift */,
+				2524FE7F2440EB75007ECF56 /* TotalTypesCasesCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		25C47F6D24408F5500A4F91F = {
 			isa = PBXGroup;
 			children = (
@@ -58,16 +94,67 @@
 		25C47F7824408F5500A4F91F /* Covid-19 Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				25C47F7924408F5500A4F91F /* AppDelegate.swift */,
-				25C47F7B24408F5500A4F91F /* SceneDelegate.swift */,
-				25C47F7D24408F5500A4F91F /* HomeViewController.swift */,
-				25C47F8D24408FDF00A4F91F /* MainTabBarController.swift */,
-				25C47F8224408F5900A4F91F /* Assets.xcassets */,
-				25D9AF7324409823006BD732 /* Colors.xcassets */,
-				25C47F8424408F5900A4F91F /* LaunchScreen.storyboard */,
+				2524FE812440ED52007ECF56 /* UIView+Ext.swift */,
+				25AE9C302440AD410093F3E2 /* CodeView.swift */,
+				25D9AF792440A7DF006BD732 /* Support */,
+				25D9AF782440A7C3006BD732 /* CustomViews */,
+				25D9AF772440A7B9006BD732 /* Features */,
 				25C47F8724408F5900A4F91F /* Info.plist */,
 			);
 			path = "Covid-19 Tracker";
+			sourceTree = "<group>";
+		};
+		25D9AF752440A7A4006BD732 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2524FE7A2440C35E007ECF56 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		25D9AF762440A7B2006BD732 /* World */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = World;
+			sourceTree = "<group>";
+		};
+		25D9AF772440A7B9006BD732 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				25D9AF762440A7B2006BD732 /* World */,
+				25D9AF752440A7A4006BD732 /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		25D9AF782440A7C3006BD732 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				25D9AF7A2440A874006BD732 /* Controller */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		25D9AF792440A7DF006BD732 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				25C47F8424408F5900A4F91F /* LaunchScreen.storyboard */,
+				25C47F7B24408F5500A4F91F /* SceneDelegate.swift */,
+				25C47F7924408F5500A4F91F /* AppDelegate.swift */,
+				25C47F8224408F5900A4F91F /* Assets.xcassets */,
+				25D9AF7324409823006BD732 /* Colors.xcassets */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		25D9AF7A2440A874006BD732 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				25C47F8D24408FDF00A4F91F /* MainTabBarController.swift */,
+				25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,8 +229,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				25C47F7E24408F5500A4F91F /* HomeViewController.swift in Sources */,
+				25D9AF7C2440A889006BD732 /* CustomNavigationController.swift in Sources */,
 				25C47F7A24408F5500A4F91F /* AppDelegate.swift in Sources */,
+				25AE9C312440AD410093F3E2 /* CodeView.swift in Sources */,
+				2524FE802440EB75007ECF56 /* TotalTypesCasesCell.swift in Sources */,
+				2524FE822440ED52007ECF56 /* UIView+Ext.swift in Sources */,
 				25C47F8E24408FDF00A4F91F /* MainTabBarController.swift in Sources */,
+				2524FE7E2440C381007ECF56 /* ChartHeaderCell.swift in Sources */,
 				25C47F7C24408F5500A4F91F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -36,21 +36,3 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = .white
     }
 }
-
-class CustomNavigationController: UINavigationController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupLayout()
-    }
-
-    func setupLayout() {        
-        navigationBar.barTintColor = UIColor(named: "Foreground")
-        navigationBar.tintColor = .white
-        navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationBar.isTranslucent = false
-    }
-
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
-    }
-}
