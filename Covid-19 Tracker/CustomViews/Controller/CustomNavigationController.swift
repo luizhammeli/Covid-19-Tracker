@@ -15,7 +15,7 @@ class CustomNavigationController: UINavigationController {
     }
 
     func setupLayout() {
-        navigationBar.barTintColor = UIColor(named: "Foreground")
+        navigationBar.barTintColor = UIColor(named: Colors.foreground)
         navigationBar.tintColor = .white
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar.layer.shadowColor = UIColor.black.cgColor
@@ -24,7 +24,7 @@ class CustomNavigationController: UINavigationController {
         navigationBar.layer.shadowOpacity = 0.3
         self.navigationBar.isTranslucent = false
     }
-
+    
     override var preferredStatusBarStyle: UIStatusBarStyle{
         return .lightContent
     }
