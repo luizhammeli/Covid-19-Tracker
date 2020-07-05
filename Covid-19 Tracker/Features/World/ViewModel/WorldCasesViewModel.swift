@@ -19,6 +19,7 @@ final class WorldCasesViewModel {
     }
 
     func getWorldCasesData(_ completion: @escaping (Bool, String?) -> Void) {
+        countryCasesViewModelItems.removeAll()
         service.fetchWorldCasesData { [weak self] (result) in
             switch result {
             case .success(let worldCasesData):

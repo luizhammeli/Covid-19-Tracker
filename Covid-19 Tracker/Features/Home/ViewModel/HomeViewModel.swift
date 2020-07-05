@@ -19,7 +19,6 @@ class HomeViewModel {
     }
 
     func getBrazilCasesData(_ completion: @escaping (Bool, String?) -> Void) {
-        countryCasesViewModelItems.removeAll()
         service.fetchBrazilCasesData { [weak self] (result) in
             switch result {
             case .success(let countryData):
@@ -32,6 +31,8 @@ class HomeViewModel {
     }
 
     func mapViewModelItems(countryData: CountryCases) {
+        countryCasesViewModelItems.removeAll()
+        
         countryCasesHeaderViewModelItem = CountryCasesHeaderViewModelItem(strTotalCount: formatNumber(countryData.cases),
                                                                           strActiveCount: formatNumber(countryData.active),
                                                                           strRecoveredCount: formatNumber(countryData.recovered),

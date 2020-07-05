@@ -49,7 +49,9 @@ class WorldCasesCollectionViewController: UICollectionViewController {
     
 
     @objc func getCasesData() {
-        showLoader()
+        if !(collectionView.refreshControl?.isRefreshing ?? false) {
+            showLoader()
+        }
         viewModel.getWorldCasesData { [weak self] (success, errorMessage) in
             self?.removeLoader()
             self?.endRefreshingOnMainThread()
