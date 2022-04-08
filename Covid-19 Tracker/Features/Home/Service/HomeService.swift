@@ -10,7 +10,7 @@ import Foundation
 
 class HomeService {
     func fetchBrazilCasesData(_ completion: @escaping(Result<CountryCases, ErrorMessages>)->Void) {
-        NetworkManager.shared.fetchData(endPoint: "countries/\(Labels.brazil)", type: CountryCases.self) { (result) in
+        URLSessionNetworkManager.shared.fetchData(endPoint: "countries/\(Labels.brazil)", type: CountryCases.self) { (result) in
             completion(result)
         }
     }

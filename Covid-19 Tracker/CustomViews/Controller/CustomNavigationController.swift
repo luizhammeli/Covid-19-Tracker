@@ -22,7 +22,7 @@ class CustomNavigationController: UINavigationController {
         navigationBar.layer.shadowOffset = CGSize(width: 0, height: 3)
         navigationBar.layer.shadowRadius = 10
         navigationBar.layer.shadowOpacity = 0.3
-        self.navigationBar.isTranslucent = false
+        //self.navigationBar.isTranslucent = false
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

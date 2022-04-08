@@ -46,6 +46,10 @@ class CountryCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        self.flagImageView.image = nil
+    }
 
     func set(item: CountryCasesViewModelItem) {
         nameLabel.text = item.countryName

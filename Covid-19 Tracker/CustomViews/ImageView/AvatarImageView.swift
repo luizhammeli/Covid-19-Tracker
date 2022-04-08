@@ -25,7 +25,7 @@ final class AvatarImageView: UIImageView {
     }
 
     func fetchImage(stringUrl: String) {
-        NetworkManager.shared.download(stringURL: stringUrl) { [weak self] result in
+        URLSessionNetworkManager.shared.download(stringURL: stringUrl) { [weak self] result in
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {

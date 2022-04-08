@@ -8,8 +8,41 @@
 
 import UIKit
 
-final class NetworkManager {
-    static let shared = NetworkManager()
+protocol HttpClient {
+    func get(from url: URL, completion: @escaping (Result<Data, HttpError>) ->Void)
+}
+
+final class URLSessionHttpClient: HttpClient {
+    let session: URLSession
+    
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
+    
+    func get(from url: URL, completion: @escaping (Result<Data, HttpError>) -> Void) {
+        session.dataTask(with: url) { (data, response, error) in
+            if let _ = error {
+                completion(.failure(.serverError))
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                completion(.failure(.badRequest))
+                return
+            }
+
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+
+            completion(.success(data))
+        }.resume()
+    }
+}
+
+final class URLSessionNetworkManager {
+    static let shared = URLSessionNetworkManager()
 
     private let cache = NSCache<NSString, UIImage>()
 
@@ -20,7 +53,7 @@ final class NetworkManager {
         return baseUrl
     }()
 
-    func fetchData<T: Decodable>(endPoint: String, type: T.Type, completion: @escaping (Result<T, ErrorMessages>) ->Void){
+    func fetchData<T: Decodable>(endPoint: String, type: T.Type, completion: @escaping (Result<T, ErrorMessages>) ->Void) {
         guard let url = URL(string: "\(baseUrl)\(endPoint)") else {
             completion(.failure(ErrorMessages.invalidURL))
             return

@@ -10,13 +10,13 @@ import Foundation
 
 class WorldCasesServices {
     func fetchWorldCasesData(_ completion: @escaping(Result<WorldCases, ErrorMessages>)->Void) {
-        NetworkManager.shared.fetchData(endPoint: "all", type: WorldCases.self) { (result) in
+        URLSessionNetworkManager.shared.fetchData(endPoint: "all", type: WorldCases.self) { (result) in
             completion(result)
         }
     }
 
     func fetchAllCountriesCasesData(_ completion: @escaping(Result<[CountryCases], ErrorMessages>)->Void) {
-        NetworkManager.shared.fetchData(endPoint: "countries", type: [CountryCases].self) { (result) in
+        URLSessionNetworkManager.shared.fetchData(endPoint: "countries", type: [CountryCases].self) { (result) in
             completion(result)
         }
     }
