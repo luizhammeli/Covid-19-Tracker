@@ -15,4 +15,5 @@ public enum HttpError: Error {
     case serverError
     case badRequest
     case invalidData
+    case invalidResponse
 }

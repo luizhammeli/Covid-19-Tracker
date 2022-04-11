@@ -42,6 +42,7 @@
 		25C47F8E24408FDF00A4F91F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F8D24408FDF00A4F91F /* MainTabBarController.swift */; };
 		25D9AF7424409823006BD732 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D9AF7324409823006BD732 /* Colors.xcassets */; };
 		25D9AF7C2440A889006BD732 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */; };
+		3815ED7E2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3815ED7D2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		25C47F8D24408FDF00A4F91F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		25D9AF7324409823006BD732 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		3815ED7D2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadRemoteBrazilianCasesTests.swift; sourceTree = "<group>"; };
 		419FD4A2A3978CF6750091AC /* Pods-Covid-19 Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19 Tracker.release.xcconfig"; path = "Target Support Files/Pods-Covid-19 Tracker/Pods-Covid-19 Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		718DE903172EF188C7D29028 /* Pods_Covid_19_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid_19_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD91BB61D572FDB1E65294BF /* Pods-Covid-19 Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19 Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Covid-19 Tracker/Pods-Covid-19 Tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,12 +118,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2505D28F244245C30001EF44 /* Manager */ = {
+		2505D28F244245C30001EF44 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				2505D29024424A4C0001EF44 /* Network */,
 			);
-			path = Manager;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		2505D29024424A4C0001EF44 /* Network */ = {
@@ -161,6 +163,7 @@
 		2505D2AB2443AC970001EF44 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2505D29B244377990001EF44 /* WorldCasesCollectionViewController.swift */,
 				2505D2AC2443AC9E0001EF44 /* Cells */,
 			);
 			path = View;
@@ -281,18 +284,19 @@
 		256111DA28009EDE003A6B75 /* Covid-19 TrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				256111E22800A05A003A6B75 /* Manager */,
+				3815ED79280357450074EF3F /* Features */,
+				256111E22800A05A003A6B75 /* Managers */,
 				256111DB28009EDE003A6B75 /* Covid_19_TrackerTests.swift */,
 			);
 			path = "Covid-19 TrackerTests";
 			sourceTree = "<group>";
 		};
-		256111E22800A05A003A6B75 /* Manager */ = {
+		256111E22800A05A003A6B75 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				256111E32800A066003A6B75 /* Network */,
 			);
-			path = Manager;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		256111E32800A066003A6B75 /* Network */ = {
@@ -326,7 +330,7 @@
 		25C47F7824408F5500A4F91F /* Covid-19 Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				2505D28F244245C30001EF44 /* Manager */,
+				2505D28F244245C30001EF44 /* Managers */,
 				2546838724422DF7009E238A /* Utilities */,
 				2546838624422DEB009E238A /* Extensions */,
 				25D9AF792440A7DF006BD732 /* Support */,
@@ -355,7 +359,6 @@
 				2505D2AB2443AC970001EF44 /* View */,
 				2505D2A5244388810001EF44 /* Services */,
 				2505D2A2244388640001EF44 /* ViewModel */,
-				2505D29B244377990001EF44 /* WorldCasesCollectionViewController.swift */,
 			);
 			path = World;
 			sourceTree = "<group>";
@@ -399,6 +402,30 @@
 				25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		3815ED79280357450074EF3F /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3815ED7A2803574B0074EF3F /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3815ED7A2803574B0074EF3F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3815ED7B2803574F0074EF3F /* UseCases */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		3815ED7B2803574F0074EF3F /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				3815ED7D2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift */,
+			);
+			path = UseCases;
 			sourceTree = "<group>";
 		};
 		8787A1D87C51DB24B8AB97BD /* Frameworks */ = {
@@ -564,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				256111E52800A07F003A6B75 /* URLSessionHttpClientTests.swift in Sources */,
+				3815ED7E2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift in Sources */,
 				256111DC28009EDE003A6B75 /* Covid_19_TrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

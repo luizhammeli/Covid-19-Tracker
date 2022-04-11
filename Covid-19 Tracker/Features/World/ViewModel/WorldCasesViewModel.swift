@@ -9,7 +9,6 @@
 import Foundation
 
 final class WorldCasesViewModel {
-
     let service: WorldCasesServices
     var countryCasesHeaderViewModelItem: CountryCasesHeaderViewModelItem?
     var countryCasesViewModelItems = [CountryCasesViewModelItem]()
@@ -67,7 +66,7 @@ final class WorldCasesViewModel {
         return countryCasesViewModelItems.count
     }
 
-    func getViewModelItem(with indexPath: IndexPath) -> CountryCasesViewModelItem{
+    func getViewModelItem(with indexPath: IndexPath) -> CountryCasesViewModelItem {
         return countryCasesViewModelItems[indexPath.item]
     }
 
