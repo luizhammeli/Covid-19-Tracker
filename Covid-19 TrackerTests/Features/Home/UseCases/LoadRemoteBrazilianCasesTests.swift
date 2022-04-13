@@ -9,28 +9,6 @@
 import XCTest
 @testable import Covid_19_Tracker
 
-protocol LoadCountryCases {
-    typealias Result = Swift.Result<CountryCases, ErrorMessages>
-    
-    func load(completion: @escaping (Result) -> Void)
-}
-
-final class LoadRemoteBrazilianCases: LoadCountryCases {
-    let url: URL
-    let httpClient: HttpClient
-    
-    init(url: URL, httpClient: HttpClient) {
-        self.url = url
-        self.httpClient = httpClient
-    }
-    
-    func load(completion: @escaping (LoadCountryCases.Result) -> Void) {
-        httpClient.get(from: url) { _ in
-            
-        }
-    }
-}
-
 final class LoadRemoteBrazilianCasesTests: XCTestCase {
     func test_init_shouldNotStartRequest() {
         let (_, clientSpy) = makeSUT()
@@ -44,30 +22,37 @@ final class LoadRemoteBrazilianCasesTests: XCTestCase {
         XCTAssertEqual(clientSpy.urls, [url])
     }
     
-    func test_load_() {
-        
+    func test_load_deliversGenericErrorIfClientCompletesWithFailure() {
+        let (sut, clientSpy) = makeSUT()
+        expect(sut: sut, with: .failure(.genericError), when: { clientSpy.complete(with: .failure(.invalidData)) })
+    }
+    
+    func test_load_deliversCorrectDataIfClientCompletesWithSuccess() {
+        let countryData = makeCountryCase()        
+        let (sut, clientSpy) = makeSUT()
+        expect(sut: sut, with: .success(countryData), when: { clientSpy.complete(with: .success(countryData.toData())) })
+    }
+    
+    func test_load_deliversInvalidDataErrorIfClientCompletesWithInvalidData() {
+        let (sut, clientSpy) = makeSUT()
+        expect(sut: sut, with: .failure(.invalidData), when: { clientSpy.complete(with: .success("Data".data(using: .utf8)!)) })
     }
 }
 
 // MARK: - Helpers
-extension LoadRemoteBrazilianCasesTests {
+private extension LoadRemoteBrazilianCasesTests {
     func makeSUT(url: URL = URL(string: "https://www.init.com")!) -> (LoadRemoteBrazilianCases, HttpClientSpy) {
         let spy = HttpClientSpy()
         let sut = LoadRemoteBrazilianCases(url: url, httpClient: spy)
+        trackForMemoryLeaks(instance: sut)
+        trackForMemoryLeaks(instance: spy)
         return (sut, spy)
     }
     
-    func makeURL(stringURL: String = "https://www.test.com") -> URL {
-        return URL(string: stringURL)!
-    }
-}
-
-final class HttpClientSpy: HttpClient {
-    var messages = [(url: URL, completion: (HttpClient.Result) -> Void)]()
-    
-    var urls: [URL] { messages.map { $0.url } }
-    
-    func get(from url: URL, completion: @escaping (HttpClient.Result) -> Void) {
-        messages.append((url, completion))
+    func expect(sut: LoadRemoteBrazilianCases, with expectedResult: CountryCasesLoader.Result, when action: () -> Void) {
+        var receivedResult: CountryCasesLoader.Result?
+        sut.load(completion: { receivedResult = $0 })
+        action()
+        XCTAssertEqual(receivedResult, expectedResult)
     }
 }

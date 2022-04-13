@@ -30,9 +30,15 @@
 		2546838B24422E71009E238A /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546838A24422E71009E238A /* Enum.swift */; };
 		2546838D24423E27009E238A /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546838C24423E27009E238A /* ErrorMessages.swift */; };
 		25468393244242E2009E238A /* WorldCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25468392244242E2009E238A /* WorldCases.swift */; };
-		256111DC28009EDE003A6B75 /* Covid_19_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111DB28009EDE003A6B75 /* Covid_19_TrackerTests.swift */; };
 		256111E52800A07F003A6B75 /* URLSessionHttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111E42800A07F003A6B75 /* URLSessionHttpClientTests.swift */; };
 		256111E82800A43B003A6B75 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256111E72800A43B003A6B75 /* HttpError.swift */; };
+		2586C6282805AD9500505400 /* LoadRemoteBrazilianCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586C6272805AD9500505400 /* LoadRemoteBrazilianCases.swift */; };
+		2586C62C2805ADD100505400 /* CountryCasesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586C62B2805ADD100505400 /* CountryCasesLoader.swift */; };
+		2586C6312805AE3500505400 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586C6302805AE3500505400 /* TestHelpers.swift */; };
+		2586C6342805AE5900505400 /* CountryCases+TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586C6332805AE5900505400 /* CountryCases+TestHelpers.swift */; };
+		2586C6372805AE8900505400 /* HttpClientSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586C6362805AE8900505400 /* HttpClientSpy.swift */; };
+		2586C63A2805E66400505400 /* HomePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586C6392805E66400505400 /* HomePresenterTests.swift */; };
+		2586C63C2805E68C00505400 /* XCTestCase+MemoryLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586C63B2805E68C00505400 /* XCTestCase+MemoryLeak.swift */; };
 		25AE9C312440AD410093F3E2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE9C302440AD410093F3E2 /* CodeView.swift */; };
 		25C47F7A24408F5500A4F91F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F7924408F5500A4F91F /* AppDelegate.swift */; };
 		25C47F7C24408F5500A4F91F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F7B24408F5500A4F91F /* SceneDelegate.swift */; };
@@ -79,9 +85,15 @@
 		2546838C24423E27009E238A /* ErrorMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
 		25468392244242E2009E238A /* WorldCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCases.swift; sourceTree = "<group>"; };
 		256111D928009EDE003A6B75 /* Covid-19 TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Covid-19 TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		256111DB28009EDE003A6B75 /* Covid_19_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Covid_19_TrackerTests.swift; sourceTree = "<group>"; };
 		256111E42800A07F003A6B75 /* URLSessionHttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClientTests.swift; sourceTree = "<group>"; };
 		256111E72800A43B003A6B75 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
+		2586C6272805AD9500505400 /* LoadRemoteBrazilianCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadRemoteBrazilianCases.swift; sourceTree = "<group>"; };
+		2586C62B2805ADD100505400 /* CountryCasesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCasesLoader.swift; sourceTree = "<group>"; };
+		2586C6302805AE3500505400 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
+		2586C6332805AE5900505400 /* CountryCases+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryCases+TestHelpers.swift"; sourceTree = "<group>"; };
+		2586C6362805AE8900505400 /* HttpClientSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientSpy.swift; sourceTree = "<group>"; };
+		2586C6392805E66400505400 /* HomePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenterTests.swift; sourceTree = "<group>"; };
+		2586C63B2805E68C00505400 /* XCTestCase+MemoryLeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeak.swift"; sourceTree = "<group>"; };
 		25AE9C302440AD410093F3E2 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		25C47F7624408F5500A4F91F /* Covid-19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C47F7924408F5500A4F91F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -284,9 +296,9 @@
 		256111DA28009EDE003A6B75 /* Covid-19 TrackerTests */ = {
 			isa = PBXGroup;
 			children = (
+				2586C62E2805AE2300505400 /* Helpers */,
 				3815ED79280357450074EF3F /* Features */,
 				256111E22800A05A003A6B75 /* Managers */,
-				256111DB28009EDE003A6B75 /* Covid_19_TrackerTests.swift */,
 			);
 			path = "Covid-19 TrackerTests";
 			sourceTree = "<group>";
@@ -305,6 +317,74 @@
 				256111E42800A07F003A6B75 /* URLSessionHttpClientTests.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		2586C6262805AD8000505400 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2586C6272805AD9500505400 /* LoadRemoteBrazilianCases.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		2586C6292805ADBD00505400 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2586C62D2805ADE500505400 /* Protocols */,
+				25468390244241E7009E238A /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2586C62A2805ADC800505400 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				2586C62B2805ADD100505400 /* CountryCasesLoader.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		2586C62D2805ADE500505400 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2586C62A2805ADC800505400 /* UseCases */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2586C62E2805AE2300505400 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2586C6352805AE7E00505400 /* Spys */,
+				2586C6322805AE4700505400 /* Extensions */,
+				2586C6302805AE3500505400 /* TestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2586C6322805AE4700505400 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2586C6332805AE5900505400 /* CountryCases+TestHelpers.swift */,
+				2586C63B2805E68C00505400 /* XCTestCase+MemoryLeak.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2586C6352805AE7E00505400 /* Spys */ = {
+			isa = PBXGroup;
+			children = (
+				2586C6362805AE8900505400 /* HttpClientSpy.swift */,
+			);
+			path = Spys;
+			sourceTree = "<group>";
+		};
+		2586C6382805E60A00505400 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				2586C6392805E66400505400 /* HomePresenterTests.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		25C47F6D24408F5500A4F91F = {
@@ -330,12 +410,12 @@
 		25C47F7824408F5500A4F91F /* Covid-19 Tracker */ = {
 			isa = PBXGroup;
 			children = (
+				2586C6292805ADBD00505400 /* Domain */,
 				2505D28F244245C30001EF44 /* Managers */,
 				2546838724422DF7009E238A /* Utilities */,
 				2546838624422DEB009E238A /* Extensions */,
 				25D9AF792440A7DF006BD732 /* Support */,
 				2505D29D244384DD0001EF44 /* ViewModelItem */,
-				25468390244241E7009E238A /* Model */,
 				25D9AF782440A7C3006BD732 /* CustomViews */,
 				25D9AF772440A7B9006BD732 /* Features */,
 				25C47F8724408F5900A4F91F /* Info.plist */,
@@ -346,6 +426,7 @@
 		25D9AF752440A7A4006BD732 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2586C6262805AD8000505400 /* UseCases */,
 				2546838F244241DB009E238A /* Service */,
 				2546838E244241CB009E238A /* ViewModel */,
 				2524FE7A2440C35E007ECF56 /* View */,
@@ -415,6 +496,7 @@
 		3815ED7A2803574B0074EF3F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				2586C6382805E60A00505400 /* Presenters */,
 				3815ED7B2803574F0074EF3F /* UseCases */,
 			);
 			path = Home;
@@ -591,8 +673,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				256111E52800A07F003A6B75 /* URLSessionHttpClientTests.swift in Sources */,
+				2586C6372805AE8900505400 /* HttpClientSpy.swift in Sources */,
 				3815ED7E2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift in Sources */,
-				256111DC28009EDE003A6B75 /* Covid_19_TrackerTests.swift in Sources */,
+				2586C63C2805E68C00505400 /* XCTestCase+MemoryLeak.swift in Sources */,
+				2586C6342805AE5900505400 /* CountryCases+TestHelpers.swift in Sources */,
+				2586C6312805AE3500505400 /* TestHelpers.swift in Sources */,
+				2586C63A2805E66400505400 /* HomePresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,11 +703,13 @@
 				2505D2A1244385050001EF44 /* CountryCaseTypeViewModelItem.swift in Sources */,
 				2524FE802440EB75007ECF56 /* TotalTypesCasesCell.swift in Sources */,
 				2524FE822440ED52007ECF56 /* UIView+Ext.swift in Sources */,
+				2586C62C2805ADD100505400 /* CountryCasesLoader.swift in Sources */,
 				2505D29A24433FCD0001EF44 /* UICollectionViewController+Ext.swift in Sources */,
 				2546838324422467009E238A /* ChartsDetailView.swift in Sources */,
 				256111E82800A43B003A6B75 /* HttpError.swift in Sources */,
 				2505D2A72443888D0001EF44 /* WorldCasesServices.swift in Sources */,
 				2546838D24423E27009E238A /* ErrorMessages.swift in Sources */,
+				2586C6282805AD9500505400 /* LoadRemoteBrazilianCases.swift in Sources */,
 				25468385244224A2009E238A /* ChartsDetailBar.swift in Sources */,
 				2505D2B22443BF250001EF44 /* AvatarImageView.swift in Sources */,
 				2505D29F244384ED0001EF44 /* CountryCasesHeaderViewModelItem.swift in Sources */,

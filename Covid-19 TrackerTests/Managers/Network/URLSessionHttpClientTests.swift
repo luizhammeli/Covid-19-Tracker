@@ -84,20 +84,12 @@ private extension URLSessionHttpClientTests {
                        line: line)
     }
     
-    func makeURL() -> URL {
-        return URL(string: "https://www.test.com")!
-    }
-    
     func makeNSError() -> NSError {
         NSError(domain: "", code: 10, userInfo: nil)
     }
     
     func makeURLResponse(statusCode: Int = 200) -> URLResponse {
         return HTTPURLResponse(url: makeURL(), statusCode: statusCode, httpVersion: nil, headerFields: nil)!
-    }
-    
-    func makeData() -> Data {
-        return "New Test".data(using: .utf8)!
     }
 }
 

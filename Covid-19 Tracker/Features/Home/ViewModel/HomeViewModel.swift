@@ -66,7 +66,7 @@ class HomeViewModel {
                                                                     color: UIColor(named: "CustomDarkPurple")))
     }
 
-    func formatNumber(_ number: Int)->String {
+    func formatNumber(_ number: Int) -> String {
         let formater = NumberFormatter()
         formater.groupingSeparator = "."
         formater.numberStyle = .decimal

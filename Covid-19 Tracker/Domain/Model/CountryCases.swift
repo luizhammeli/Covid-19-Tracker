@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CountryCases: Codable {
+struct CountryCases: Codable, Equatable {
     let country: String
     let cases: Int
     let todayCases: Int
@@ -24,7 +24,7 @@ struct CountryCases: Codable {
     let countryInfo: CountryInfo
 }
 
-struct CountryInfo: Codable {
+struct CountryInfo: Codable, Equatable {
     let _id: Int?
     let flag: String
 }
