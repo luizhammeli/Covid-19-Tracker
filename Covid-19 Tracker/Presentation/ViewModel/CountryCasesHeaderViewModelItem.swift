@@ -18,3 +18,14 @@ struct CountryCasesHeaderViewModelItem: Codable {
     let recoveredCount: Double
     let deathsCount: Double
 }
+
+struct CountryCasesHeaderViewModel: Codable {
+    let strTotalCount: String
+    let strActiveCount: String
+    let strRecoveredCount: String
+    let strDeathsCount: String
+
+    let activeCount: Double
+    let recoveredCount: Double
+    let deathsCount: Double
+}

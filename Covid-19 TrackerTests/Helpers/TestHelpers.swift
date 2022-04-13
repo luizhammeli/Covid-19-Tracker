@@ -13,20 +13,28 @@ func makeURL(stringURL: String = "https://www.test.com") -> URL {
     return URL(string: stringURL)!
 }
 
-func makeCountryCase() -> CountryCases {
-    return CountryCases(country: "",
-                 cases: 0,
-                 todayCases: 0,
-                 deaths: 0,
+func makeCountryCase() -> (CountryCases) {
+    return CountryCases(country: "Test",
+                 cases: 10000,
+                 todayCases: 70000,
+                 deaths: 12500,
                  todayDeaths: 0,
-                 recovered: 0,
-                 active: 0,
-                 critical: 0,
-                 casesPerOneMillion: 0,
-                 deathsPerOneMillion: 0,
-                 tests: 0,
-                 testsPerOneMillion: 0,
-                 countryInfo: .init(_id: 0, flag: ""))
+                 recovered: 13000,
+                 active: 14000,
+                 critical: 10000,
+                 casesPerOneMillion: 15000,
+                 deathsPerOneMillion: 16000,
+                 tests: 170000,
+                 testsPerOneMillion: 180000,
+                 countryInfo: .init(_id: 1, flag: "Test"))
+    
+//    CountryCasesHeaderViewModel(strTotalCount: "10.000",
+//                                strActiveCount: "14.000",
+//                                strRecoveredCount: "13.000",
+//                                strDeathsCount: "12.500",
+//                                activeCount: 14000,
+//                                recoveredCount: 13000,
+//                                deathsCount: 12500)
 }
 
 

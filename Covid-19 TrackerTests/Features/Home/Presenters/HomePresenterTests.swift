@@ -10,7 +10,8 @@ import XCTest
 @testable import Covid_19_Tracker
 
 struct HomeViewModel {
-    let isLoading: Bool
+    let header: CountryCasesHeaderViewModel
+    let cases: [CountryCaseTypeViewModel]
 }
 
 struct LoadingViewModel {
@@ -30,7 +31,7 @@ protocol AlertView {
 }
 
 protocol HomeView {
-    func display()
+    func display(viewModel: HomeViewModel)
 }
 
 final class HomePresenter {
@@ -52,12 +53,18 @@ final class HomePresenter {
             guard let self = self else { return }
             self.loadingView.isLoading(viewModel: .init(isLoading: false))
             switch result {
-            case .success:
-                self.homeView.display()
+            case .success(let cases):
+                let viewModel = self.toHomeViewModel(with: cases)
+                self.homeView.display(viewModel: viewModel)
             case .failure(let message):
                 self.alertView.display(message: .init(description: message.rawValue))
             }
         })
+    }
+    
+    private func toHomeViewModel(with countryData: CountryCases) -> HomeViewModel {
+        return HomeViewModel(header: CountryCasesViewModelMapper.toHeaderViewModel(countryData: countryData),
+                             cases: CountryCasesViewModelMapper.toCaseTypeViewModel(countryData: countryData))
     }
 }
 
@@ -98,7 +105,8 @@ private extension HomePresenterTests {
     func makeSUT() -> (HomePresenter, LoadCountryCasesSpy) {
         let spy = LoadCountryCasesSpy()
         let sut = HomePresenter(loader: spy, loadingView: spy, homeView: spy, alertView: spy)
-        
+        trackForMemoryLeaks(instance: spy)
+        trackForMemoryLeaks(instance: sut)
         return (sut, spy)
     }
 }
@@ -125,7 +133,7 @@ final class LoadCountryCasesSpy: CountryCasesLoader, LoadingView, HomeView, Aler
         messages.append(.load(isLoading: viewModel.isLoading))
     }
     
-    func display() {
+    func display(viewModel: HomeViewModel) {
         messages.append(.display)
     }
     

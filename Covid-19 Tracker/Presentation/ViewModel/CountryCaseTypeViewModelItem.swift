@@ -20,3 +20,16 @@ struct CountryCasesViewModelItem {
     let countryFlagUrl: String
     let totalCases: String
 }
+
+struct CountryCaseTypeViewModel {
+    let title: String
+    let count: String
+    let color: String?
+}
+
+struct CountryCasesViewModel {
+    let countryCaseTypeViewModelItem: [CountryCaseTypeViewModel]
+    let countryName: String
+    let countryFlagUrl: String
+    let totalCases: String
+}
