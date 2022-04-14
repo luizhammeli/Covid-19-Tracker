@@ -7,69 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "24AD748D-A70E-4BA6-AD96-6960119928C4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Covid-19 TrackerTests/Features/Home/Presenters/HomePresenterTests.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "loadBrazilianCases()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "24AD748D-A70E-4BA6-AD96-6960119928C4 - aaec0260b6b36ca1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Covid_19_Tracker.CountryCases, Covid_19_Tracker.ErrorMessages&gt;) -&gt; () in Covid_19_TrackerTests.HomePresenter.loadBrazilianCases() -&gt; ()"
-                  moduleName = "Covid-19 TrackerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/Home/Presenters/HomePresenterTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "528">
-               </Location>
-               <Location
-                  uuid = "24AD748D-A70E-4BA6-AD96-6960119928C4 - aaec0260b6b36f17"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Covid_19_Tracker.CountryCases, Covid_19_Tracker.ErrorMessages&gt;) -&gt; () in Covid_19_TrackerTests.HomePresenter.loadBrazilianCases() -&gt; ()"
-                  moduleName = "Covid-19 TrackerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/Home/Presenters/HomePresenterTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "528">
-               </Location>
-               <Location
-                  uuid = "24AD748D-A70E-4BA6-AD96-6960119928C4 - aaec0260b6b36f17"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Covid_19_Tracker.CountryCases, Covid_19_Tracker.ErrorMessages&gt;) -&gt; () in Covid_19_TrackerTests.HomePresenter.loadBrazilianCases() -&gt; ()"
-                  moduleName = "Covid-19 TrackerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/Home/Presenters/HomePresenterTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "548">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "57E844CA-EF30-4158-82A2-3FF416C12800"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -77,9 +14,9 @@
             filePath = "Covid-19 TrackerTests/Features/Home/Presenters/HomePresenterTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "display()"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "complete(with:at:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -118,49 +55,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "830914F2-1533-455D-979C-68F64F2CC67F"
+            uuid = "DD4C2F0B-A95E-4F60-893B-D1EBF8B1E0D7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Covid-19 TrackerTests/Features/Home/Presenters/HomePresenterTests.swift"
+            filePath = "Covid-19 Tracker/CustomViews/Controller/MainTabBarController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "loadBrazilianCases()"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "setupControllers()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "830914F2-1533-455D-979C-68F64F2CC67F - aaec0260b6b36f34"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Covid_19_Tracker.CountryCases, Covid_19_Tracker.ErrorMessages&gt;) -&gt; () in Covid_19_TrackerTests.HomePresenter.loadBrazilianCases() -&gt; ()"
-                  moduleName = "Covid-19 TrackerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/Home/Presenters/HomePresenterTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "640">
-               </Location>
-               <Location
-                  uuid = "830914F2-1533-455D-979C-68F64F2CC67F - aaec0260b6b36f34"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Covid_19_Tracker.CountryCases, Covid_19_Tracker.ErrorMessages&gt;) -&gt; () in Covid_19_TrackerTests.HomePresenter.loadBrazilianCases() -&gt; ()"
-                  moduleName = "Covid-19 TrackerTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/Home/Presenters/HomePresenterTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "660">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

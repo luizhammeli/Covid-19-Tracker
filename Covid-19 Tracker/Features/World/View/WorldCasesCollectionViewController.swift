@@ -77,7 +77,7 @@ extension WorldCasesCollectionViewController {
                                                                    withReuseIdentifier: ChartHeaderCell.cellID,
                                                                    for: indexPath) as! ChartHeaderCell
         guard let headerViewModelItem = viewModel.countryCasesHeaderViewModelItem else { return cell }
-        cell.setupChartView(viewModelItem: headerViewModelItem, country: Labels.world)
+        //cell.setupChartView(viewModelItem: headerViewModelItem, country: Labels.world)
         return cell
     }
 

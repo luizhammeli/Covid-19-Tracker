@@ -9,64 +9,7 @@
 import XCTest
 @testable import Covid_19_Tracker
 
-struct HomeViewModel {
-    let header: CountryCasesHeaderViewModel
-    let cases: [CountryCaseTypeViewModel]
-}
 
-struct LoadingViewModel {
-    let isLoading: Bool
-}
-
-struct AlertViewModel {
-    let description: String
-}
-
-protocol LoadingView {
-    func isLoading(viewModel: LoadingViewModel)
-}
-
-protocol AlertView {
-    func display(message: AlertViewModel)
-}
-
-protocol HomeView {
-    func display(viewModel: HomeViewModel)
-}
-
-final class HomePresenter {
-    private let loader: CountryCasesLoader
-    private let loadingView: LoadingView
-    private let homeView: HomeView
-    private let alertView: AlertView
-    
-    init(loader: CountryCasesLoader, loadingView: LoadingView, homeView: HomeView, alertView: AlertView) {
-        self.loader = loader
-        self.loadingView = loadingView
-        self.homeView = homeView
-        self.alertView = alertView
-    }
-    
-    func loadBrazilianCases() {
-        loadingView.isLoading(viewModel: .init(isLoading: true))
-        loader.load(completion: { [weak self] result in
-            guard let self = self else { return }
-            self.loadingView.isLoading(viewModel: .init(isLoading: false))
-            switch result {
-            case .success(let cases):
-                let viewModel = self.toHomeViewModel(with: cases)
-                self.homeView.display(viewModel: viewModel)
-            case .failure(let message):
-                self.alertView.display(message: .init(description: message.rawValue))
-            }
-        })
-    }
-    
-    private func toHomeViewModel(with countryData: CountryCases) -> HomeViewModel {
-        return HomeViewModel(header: CountryCasesViewModelMapper.toHeaderViewModel(countryData: countryData),
-                             cases: CountryCasesViewModelMapper.toCaseTypeViewModel(countryData: countryData))
-    }
-}
 
 final class HomePresenterTests: XCTestCase {
     func test_init_shouldNotLoadAnyCaseData() {

@@ -68,7 +68,7 @@ extension ChartHeaderCell: CodeView {
         pieChart.fillSuperview()
     }
 
-    func setupChartView(viewModelItem: CountryCasesHeaderViewModelItem, country: String) {
+    func setupChartView(viewModelItem: CountryCasesHeaderViewModel, country: String) {
         setupViews()
         
         countryLabel.text = country

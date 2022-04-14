@@ -25,6 +25,12 @@
 		2524FE7E2440C381007ECF56 /* ChartHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524FE7D2440C381007ECF56 /* ChartHeaderCell.swift */; };
 		2524FE802440EB75007ECF56 /* TotalTypesCasesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524FE7F2440EB75007ECF56 /* TotalTypesCasesCell.swift */; };
 		2524FE822440ED52007ECF56 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2524FE812440ED52007ECF56 /* UIView+Ext.swift */; };
+		252793AF2806F85F0044CA1A /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252793AE2806F85F0044CA1A /* HomePresenter.swift */; };
+		252793B12806F8D50044CA1A /* LoadingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252793B02806F8D50044CA1A /* LoadingViewModel.swift */; };
+		252793B32806F9070044CA1A /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252793B22806F9070044CA1A /* AlertViewModel.swift */; };
+		252793B62806F9350044CA1A /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252793B52806F9350044CA1A /* LoadingView.swift */; };
+		252793B82806F9480044CA1A /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252793B72806F9480044CA1A /* AlertView.swift */; };
+		252793BA2806F9570044CA1A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252793B92806F9570044CA1A /* HomeView.swift */; };
 		2546838324422467009E238A /* ChartsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546838224422467009E238A /* ChartsDetailView.swift */; };
 		25468385244224A2009E238A /* ChartsDetailBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25468384244224A2009E238A /* ChartsDetailBar.swift */; };
 		2546838B24422E71009E238A /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2546838A24422E71009E238A /* Enum.swift */; };
@@ -80,6 +86,12 @@
 		2524FE7D2440C381007ECF56 /* ChartHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderCell.swift; sourceTree = "<group>"; };
 		2524FE7F2440EB75007ECF56 /* TotalTypesCasesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTypesCasesCell.swift; sourceTree = "<group>"; };
 		2524FE812440ED52007ECF56 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		252793AE2806F85F0044CA1A /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		252793B02806F8D50044CA1A /* LoadingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewModel.swift; sourceTree = "<group>"; };
+		252793B22806F9070044CA1A /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
+		252793B52806F9350044CA1A /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		252793B72806F9480044CA1A /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		252793B92806F9570044CA1A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2546838224422467009E238A /* ChartsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDetailView.swift; sourceTree = "<group>"; };
 		25468384244224A2009E238A /* ChartsDetailBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDetailBar.swift; sourceTree = "<group>"; };
 		2546838A24422E71009E238A /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
@@ -154,6 +166,8 @@
 			children = (
 				2505D29E244384ED0001EF44 /* CountryCasesHeaderViewModelItem.swift */,
 				2505D2A0244385050001EF44 /* CountryCaseTypeViewModelItem.swift */,
+				252793B02806F8D50044CA1A /* LoadingViewModel.swift */,
+				252793B22806F9070044CA1A /* AlertViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -224,6 +238,24 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		252793AD2806F84E0044CA1A /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				252793AE2806F85F0044CA1A /* HomePresenter.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		252793B42806F9220044CA1A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				252793B52806F9350044CA1A /* LoadingView.swift */,
+				252793B72806F9480044CA1A /* AlertView.swift */,
+				252793B92806F9570044CA1A /* HomeView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		2546838124422458009E238A /* Charts */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				2546838624422DEB009E238A /* Extensions */,
-				38FC765528066DE800089A48 /* Helpers */,
 				2546838924422E4A009E238A /* Enum */,
 				2546838824422E0A009E238A /* Protocols */,
 			);
@@ -429,6 +460,7 @@
 		25D9AF752440A7A4006BD732 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				252793AD2806F84E0044CA1A /* Presenters */,
 				2586C6262805AD8000505400 /* UseCases */,
 				2546838F244241DB009E238A /* Service */,
 				2546838E244241CB009E238A /* ViewModel */,
@@ -513,13 +545,6 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
-		38FC765528066DE800089A48 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		38FC765628066DEF00089A48 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +556,7 @@
 		38FC765728066E3100089A48 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				252793B42806F9220044CA1A /* Protocols */,
 				2505D29D244384DD0001EF44 /* ViewModel */,
 				38FC765628066DEF00089A48 /* Mappers */,
 			);
@@ -716,24 +742,29 @@
 				2505D29824432A6D0001EF44 /* UIViewController+Ext.swift in Sources */,
 				2505D294244256820001EF44 /* HomeViewModel.swift in Sources */,
 				25C47F7E24408F5500A4F91F /* HomeViewController.swift in Sources */,
+				252793B32806F9070044CA1A /* AlertViewModel.swift in Sources */,
 				25D9AF7C2440A889006BD732 /* CustomNavigationController.swift in Sources */,
 				2505D2AA24438CCA0001EF44 /* Int+Ext.swift in Sources */,
 				2505D29C244377990001EF44 /* WorldCasesCollectionViewController.swift in Sources */,
 				2505D28E2442441F0001EF44 /* CountryCases.swift in Sources */,
 				2546838B24422E71009E238A /* Enum.swift in Sources */,
 				2505D2A42443887D0001EF44 /* WorldCasesViewModel.swift in Sources */,
+				252793B12806F8D50044CA1A /* LoadingViewModel.swift in Sources */,
 				2505D29224424A5C0001EF44 /* URLSessionNetworkManager.swift in Sources */,
 				2505D296244258EB0001EF44 /* HomeService.swift in Sources */,
 				25C47F7A24408F5500A4F91F /* AppDelegate.swift in Sources */,
 				25AE9C312440AD410093F3E2 /* CodeView.swift in Sources */,
 				2505D2AE2443ACB90001EF44 /* CountryCollectionViewCell.swift in Sources */,
 				2505D2A1244385050001EF44 /* CountryCaseTypeViewModelItem.swift in Sources */,
+				252793B82806F9480044CA1A /* AlertView.swift in Sources */,
+				252793B62806F9350044CA1A /* LoadingView.swift in Sources */,
 				2524FE802440EB75007ECF56 /* TotalTypesCasesCell.swift in Sources */,
 				2524FE822440ED52007ECF56 /* UIView+Ext.swift in Sources */,
 				2586C62C2805ADD100505400 /* CountryCasesLoader.swift in Sources */,
 				2505D29A24433FCD0001EF44 /* UICollectionViewController+Ext.swift in Sources */,
 				2546838324422467009E238A /* ChartsDetailView.swift in Sources */,
 				256111E82800A43B003A6B75 /* HttpError.swift in Sources */,
+				252793AF2806F85F0044CA1A /* HomePresenter.swift in Sources */,
 				2505D2A72443888D0001EF44 /* WorldCasesServices.swift in Sources */,
 				2546838D24423E27009E238A /* ErrorMessages.swift in Sources */,
 				2586C6282805AD9500505400 /* LoadRemoteBrazilianCases.swift in Sources */,
@@ -745,6 +776,7 @@
 				2524FE7E2440C381007ECF56 /* ChartHeaderCell.swift in Sources */,
 				25468393244242E2009E238A /* WorldCases.swift in Sources */,
 				25C47F7C24408F5500A4F91F /* SceneDelegate.swift in Sources */,
+				252793BA2806F9570044CA1A /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

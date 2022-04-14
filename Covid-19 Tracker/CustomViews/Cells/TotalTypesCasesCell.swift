@@ -45,8 +45,8 @@ class TotalTypesCasesCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func set(viewModelItem: CountryCaseTypeViewModelItem){
-        backgroundColor = viewModelItem.color
+    func set(viewModelItem: CountryCaseTypeViewModel){
+        backgroundColor = UIColor(named: viewModelItem.color ?? "")
         typeLabel.text = viewModelItem.title
         countLabel.text = viewModelItem.count
     }

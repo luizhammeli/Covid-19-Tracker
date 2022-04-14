@@ -9,10 +9,10 @@
 import UIKit
 
 class HomeViewController: UICollectionViewController {
-    let viewModel: HomeViewModel
+    var listModel: HomeViewModel? { didSet { collectionView.reloadData() } }
+    var loadData: (() -> Void)?
     
-    init(viewModel: HomeViewModel) {
-        self.viewModel = viewModel
+    init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
 
@@ -25,7 +25,7 @@ class HomeViewController: UICollectionViewController {
         setupLayout()
         setupRefreshControl()
         registerCells()
-        getData()
+        loadData?()
     }
 
     func registerCells() {
@@ -44,29 +44,14 @@ class HomeViewController: UICollectionViewController {
     func setupRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .lightGray
-        refreshControl.addTarget(self, action: #selector(getData), for: UIControl.Event.valueChanged)
+        //refreshControl.addTarget(self, action: #selector(getData), for: UIControl.Event.valueChanged)
         collectionView.refreshControl =  refreshControl
-    }
-
-    @objc func getData() {
-        if !(collectionView.refreshControl?.isRefreshing ?? false) {
-            showLoader()
-        }
-        viewModel.getBrazilCasesData { [weak self] (success, errorMessage) in
-            self?.removeLoader()
-            self?.endRefreshingOnMainThread()
-            guard success else {
-                self?.showDefaultAlertOnMainThread(title: ErrorMessages.titleError.rawValue, message: errorMessage ?? "")
-                return
-            }
-            self?.reloadDataOnMainThread()
-        }
     }
 }
 
 extension HomeViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getNumberOfItems()
+        return listModel?.cases.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView,
@@ -75,14 +60,17 @@ extension HomeViewController {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                                    withReuseIdentifier: ChartHeaderCell.cellID,
                                                                    for: indexPath) as! ChartHeaderCell
-        guard let headerViewModelItem = viewModel.countryCasesHeaderViewModelItem else { return cell }
-        cell.setupChartView(viewModelItem: headerViewModelItem, country: Labels.brazil)
+        if let model = listModel?.header {
+            cell.setupChartView(viewModelItem: model, country: Labels.brazil)
+        }
         return cell
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TotalTypesCasesCell.cellID, for: indexPath) as! TotalTypesCasesCell
-        cell.set(viewModelItem: viewModel.getViewModelItem(indexPath: indexPath))
+        if let model = listModel?.cases[indexPath.item] {
+            cell.set(viewModelItem: model)
+        }
         return cell
     }
 }
@@ -106,5 +94,27 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (view.bounds.width-40) / 2
         return CGSize(width: width, height: width/1.9)
+    }
+}
+
+extension HomeViewController: AlertView {
+    func display(message: AlertViewModel) {
+        showDefaultAlertOnMainThread(title: "Error!", message: message.description)
+    }
+}
+
+extension HomeViewController: LoadingView {
+    func isLoading(viewModel: LoadingViewModel) {
+        if viewModel.isLoading {
+            showLoader()
+        } else {
+            removeLoader()
+        }
+    }
+}
+
+extension HomeViewController: HomeView {
+    func display(viewModel: HomeViewModel) {
+        self.listModel = viewModel
     }
 }
