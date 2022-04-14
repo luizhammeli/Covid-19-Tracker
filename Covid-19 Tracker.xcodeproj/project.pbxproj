@@ -56,6 +56,9 @@
 		25D9AF7C2440A889006BD732 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */; };
 		3815ED7E2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3815ED7D2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift */; };
 		38FC765928066ECC00089A48 /* CountryCasesViewModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC765828066ECC00089A48 /* CountryCasesViewModelMapper.swift */; };
+		38FC765C2807A69900089A48 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC765B2807A69900089A48 /* MainQueueDispatchDecorator.swift */; };
+		38FC765E2807A6B600089A48 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC765D2807A6B600089A48 /* WeakRefVirtualProxy.swift */; };
+		38FC76612807A7B500089A48 /* HomeControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC76602807A7B500089A48 /* HomeControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +123,9 @@
 		25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		3815ED7D2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadRemoteBrazilianCasesTests.swift; sourceTree = "<group>"; };
 		38FC765828066ECC00089A48 /* CountryCasesViewModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCasesViewModelMapper.swift; sourceTree = "<group>"; };
+		38FC765B2807A69900089A48 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
+		38FC765D2807A6B600089A48 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
+		38FC76602807A7B500089A48 /* HomeControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerFactory.swift; sourceTree = "<group>"; };
 		419FD4A2A3978CF6750091AC /* Pods-Covid-19 Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19 Tracker.release.xcconfig"; path = "Target Support Files/Pods-Covid-19 Tracker/Pods-Covid-19 Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		718DE903172EF188C7D29028 /* Pods_Covid_19_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid_19_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD91BB61D572FDB1E65294BF /* Pods-Covid-19 Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19 Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Covid-19 Tracker/Pods-Covid-19 Tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -279,6 +285,7 @@
 		2546838724422DF7009E238A /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				38FC765A2807A68900089A48 /* Composers */,
 				2546838624422DEB009E238A /* Extensions */,
 				2546838924422E4A009E238A /* Enum */,
 				2546838824422E0A009E238A /* Protocols */,
@@ -460,6 +467,7 @@
 		25D9AF752440A7A4006BD732 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				38FC765F2807A76600089A48 /* Factories */,
 				252793AD2806F84E0044CA1A /* Presenters */,
 				2586C6262805AD8000505400 /* UseCases */,
 				2546838F244241DB009E238A /* Service */,
@@ -561,6 +569,23 @@
 				38FC765628066DEF00089A48 /* Mappers */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		38FC765A2807A68900089A48 /* Composers */ = {
+			isa = PBXGroup;
+			children = (
+				38FC765B2807A69900089A48 /* MainQueueDispatchDecorator.swift */,
+				38FC765D2807A6B600089A48 /* WeakRefVirtualProxy.swift */,
+			);
+			path = Composers;
+			sourceTree = "<group>";
+		};
+		38FC765F2807A76600089A48 /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				38FC76602807A7B500089A48 /* HomeControllerFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 		8787A1D87C51DB24B8AB97BD /* Frameworks */ = {
@@ -741,6 +766,8 @@
 			files = (
 				2505D29824432A6D0001EF44 /* UIViewController+Ext.swift in Sources */,
 				2505D294244256820001EF44 /* HomeViewModel.swift in Sources */,
+				38FC765E2807A6B600089A48 /* WeakRefVirtualProxy.swift in Sources */,
+				38FC76612807A7B500089A48 /* HomeControllerFactory.swift in Sources */,
 				25C47F7E24408F5500A4F91F /* HomeViewController.swift in Sources */,
 				252793B32806F9070044CA1A /* AlertViewModel.swift in Sources */,
 				25D9AF7C2440A889006BD732 /* CustomNavigationController.swift in Sources */,
@@ -770,6 +797,7 @@
 				2586C6282805AD9500505400 /* LoadRemoteBrazilianCases.swift in Sources */,
 				25468385244224A2009E238A /* ChartsDetailBar.swift in Sources */,
 				2505D2B22443BF250001EF44 /* AvatarImageView.swift in Sources */,
+				38FC765C2807A69900089A48 /* MainQueueDispatchDecorator.swift in Sources */,
 				2505D29F244384ED0001EF44 /* CountryCasesHeaderViewModelItem.swift in Sources */,
 				38FC765928066ECC00089A48 /* CountryCasesViewModelMapper.swift in Sources */,
 				25C47F8E24408FDF00A4F91F /* MainTabBarController.swift in Sources */,

@@ -10,6 +10,5 @@ import Foundation
 
 protocol CountryCasesLoader {
     typealias Result = Swift.Result<CountryCases, ErrorMessages>
-    
     func load(completion: @escaping (Result) -> Void)
 }
