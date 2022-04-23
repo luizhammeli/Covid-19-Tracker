@@ -8,8 +8,8 @@
 
 import UIKit
 
-class HomeViewController: UICollectionViewController {
-    var listModel: HomeViewModel? { didSet { collectionView.reloadData() } }
+final class HomeViewController: UICollectionViewController {
+    var listModels: [HomeViewListSection] = [] { didSet { collectionView.reloadData() } }
     var loadData: (() -> Void)?
     
     init() {
@@ -23,55 +23,54 @@ class HomeViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
-        setupRefreshControl()
         registerCells()
         loadData?()
     }
 
-    func registerCells() {
+    private func registerCells() {
         collectionView.register(ChartHeaderCell.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: ChartHeaderCell.cellID)
-        collectionView.register(TotalTypesCasesCell.self, forCellWithReuseIdentifier: TotalTypesCasesCell.cellID)
+                                withReuseIdentifier: ChartHeaderCellController.cellID)        
+        collectionView.register(TotalTypesCasesCell.self, forCellWithReuseIdentifier: TotalTypesCasesCellController.cellID)
     }
 
-    func setupLayout() {
-        collectionView.backgroundColor = UIColor(named: Colors.background)         
+    private func setupLayout() {
         navigationItem.title = Labels.covid19
+        collectionView.backgroundColor = UIColor(named: Colors.background)
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 12, bottom: 30, right: 12)
+        setupRefreshControl()
     }
 
-    func setupRefreshControl() {
+    private func setupRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .lightGray
-        //refreshControl.addTarget(self, action: #selector(getData), for: UIControl.Event.valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
         collectionView.refreshControl =  refreshControl
+    }
+    
+    @objc private func refreshData() {
+        collectionView.refreshControl?.beginRefreshing()
+        loadData?()
     }
 }
 
 extension HomeViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listModel?.cases.count ?? 0
+        return listModels[section].list.count
+    }
+    
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return listModels.count
     }
 
     override func collectionView(_ collectionView: UICollectionView,
                                  viewForSupplementaryElementOfKind kind: String,
                                  at indexPath: IndexPath) -> UICollectionReusableView {
-        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                   withReuseIdentifier: ChartHeaderCell.cellID,
-                                                                   for: indexPath) as! ChartHeaderCell
-        if let model = listModel?.header {
-            cell.setupChartView(viewModelItem: model, country: Labels.brazil)
-        }
-        return cell
+        return listModels[indexPath.section].header.view(in: collectionView, for: indexPath)
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TotalTypesCasesCell.cellID, for: indexPath) as! TotalTypesCasesCell
-        if let model = listModel?.cases[indexPath.item] {
-            cell.set(viewModelItem: model)
-        }
-        return cell
+        return listModels[indexPath.section].list[indexPath.item].view(in: collectionView, for: indexPath)
     }
 }
 
@@ -79,21 +78,27 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let size = view.bounds.width-24
-        return CGSize(width: size, height: size-20)
+        return listModels[section].header.sizeFor(frameSize: view.bounds)
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 24, left: 3, bottom: 0, right: 3)
+        return listModels[section].header.insetForSection()
     }
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (view.bounds.width-40) / 2
-        return CGSize(width: width, height: width/1.9)
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {        
+        return listModels[indexPath.section].list[indexPath.item].sizeForItemAt(parentViewSize: view.bounds)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        listModels[indexPath.section].list[indexPath.item].cancelLoad()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+        listModels[indexPath.section].header.cancelLoad()
     }
 }
 
@@ -108,13 +113,8 @@ extension HomeViewController: LoadingView {
         if viewModel.isLoading {
             showLoader()
         } else {
+            collectionView.refreshControl?.endRefreshing()
             removeLoader()
         }
-    }
-}
-
-extension HomeViewController: HomeView {
-    func display(viewModel: HomeViewModel) {
-        self.listModel = viewModel
     }
 }

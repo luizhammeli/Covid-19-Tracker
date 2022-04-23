@@ -30,11 +30,19 @@ extension UIViewController {
     }
 
     func removeLoader() {
-        DispatchQueue.main.async {
-            self.view.subviews.forEach { view in
-                if let loader = view as? UIActivityIndicatorView {
-                    loader.removeFromSuperview()
-                }
+        if Thread.isMainThread {
+            removeLoaderInViewHierarchy()
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                self?.removeLoaderInViewHierarchy()
+            }
+        }
+    }
+    
+    private func removeLoaderInViewHierarchy() {
+        self.view.subviews.forEach { view in
+            if let loader = view as? UIActivityIndicatorView {
+                loader.removeFromSuperview()
             }
         }
     }

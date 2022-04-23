@@ -28,7 +28,7 @@ final class LoadRemoteBrazilianCasesTests: XCTestCase {
     }
     
     func test_load_deliversCorrectDataIfClientCompletesWithSuccess() {
-        let countryData = makeCountryCase()        
+        let countryData = makeCountryCase().model
         let (sut, clientSpy) = makeSUT()
         expect(sut: sut, with: .success(countryData), when: { clientSpy.complete(with: .success(countryData.toData())) })
     }

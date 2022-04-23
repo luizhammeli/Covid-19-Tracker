@@ -59,6 +59,10 @@
 		38FC765C2807A69900089A48 /* MainQueueDispatchDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC765B2807A69900089A48 /* MainQueueDispatchDecorator.swift */; };
 		38FC765E2807A6B600089A48 /* WeakRefVirtualProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC765D2807A6B600089A48 /* WeakRefVirtualProxy.swift */; };
 		38FC76612807A7B500089A48 /* HomeControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC76602807A7B500089A48 /* HomeControllerFactory.swift */; };
+		38FC766628097BA200089A48 /* TotalTypesCasesCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC766528097BA200089A48 /* TotalTypesCasesCellController.swift */; };
+		38FC766828098B2200089A48 /* ChartHeaderCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC766728098B2200089A48 /* ChartHeaderCellController.swift */; };
+		38FC766C280ACC2E00089A48 /* HomeViewControllerIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC766B280ACC2E00089A48 /* HomeViewControllerIntegrationTests.swift */; };
+		38FC766E280ACCF600089A48 /* LoadCountryCasesSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FC766D280ACCF600089A48 /* LoadCountryCasesSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +130,10 @@
 		38FC765B2807A69900089A48 /* MainQueueDispatchDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainQueueDispatchDecorator.swift; sourceTree = "<group>"; };
 		38FC765D2807A6B600089A48 /* WeakRefVirtualProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefVirtualProxy.swift; sourceTree = "<group>"; };
 		38FC76602807A7B500089A48 /* HomeControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerFactory.swift; sourceTree = "<group>"; };
+		38FC766528097BA200089A48 /* TotalTypesCasesCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTypesCasesCellController.swift; sourceTree = "<group>"; };
+		38FC766728098B2200089A48 /* ChartHeaderCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderCellController.swift; sourceTree = "<group>"; };
+		38FC766B280ACC2E00089A48 /* HomeViewControllerIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerIntegrationTests.swift; sourceTree = "<group>"; };
+		38FC766D280ACCF600089A48 /* LoadCountryCasesSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadCountryCasesSpy.swift; sourceTree = "<group>"; };
 		419FD4A2A3978CF6750091AC /* Pods-Covid-19 Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19 Tracker.release.xcconfig"; path = "Target Support Files/Pods-Covid-19 Tracker/Pods-Covid-19 Tracker.release.xcconfig"; sourceTree = "<group>"; };
 		718DE903172EF188C7D29028 /* Pods_Covid_19_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Covid_19_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD91BB61D572FDB1E65294BF /* Pods-Covid-19 Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid-19 Tracker.debug.xcconfig"; path = "Target Support Files/Pods-Covid-19 Tracker/Pods-Covid-19 Tracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -397,6 +405,7 @@
 		2586C62E2805AE2300505400 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				38FC766F280B30E100089A48 /* Stubs */,
 				2586C6352805AE7E00505400 /* Spys */,
 				2586C6322805AE4700505400 /* Extensions */,
 				2586C6302805AE3500505400 /* TestHelpers.swift */,
@@ -417,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				2586C6362805AE8900505400 /* HttpClientSpy.swift */,
+				38FC766D280ACCF600089A48 /* LoadCountryCasesSpy.swift */,
 			);
 			path = Spys;
 			sourceTree = "<group>";
@@ -524,6 +534,8 @@
 			children = (
 				25C47F8D24408FDF00A4F91F /* MainTabBarController.swift */,
 				25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */,
+				38FC766528097BA200089A48 /* TotalTypesCasesCellController.swift */,
+				38FC766728098B2200089A48 /* ChartHeaderCellController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -539,6 +551,7 @@
 		3815ED7A2803574B0074EF3F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				38FC766A280ACB6C00089A48 /* Controller */,
 				2586C6382805E60A00505400 /* Presenters */,
 				3815ED7B2803574F0074EF3F /* UseCases */,
 			);
@@ -586,6 +599,21 @@
 				38FC76602807A7B500089A48 /* HomeControllerFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		38FC766A280ACB6C00089A48 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38FC766B280ACC2E00089A48 /* HomeViewControllerIntegrationTests.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		38FC766F280B30E100089A48 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 		8787A1D87C51DB24B8AB97BD /* Frameworks */ = {
@@ -750,9 +778,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38FC766E280ACCF600089A48 /* LoadCountryCasesSpy.swift in Sources */,
 				256111E52800A07F003A6B75 /* URLSessionHttpClientTests.swift in Sources */,
 				2586C6372805AE8900505400 /* HttpClientSpy.swift in Sources */,
 				3815ED7E2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift in Sources */,
+				38FC766C280ACC2E00089A48 /* HomeViewControllerIntegrationTests.swift in Sources */,
 				2586C63C2805E68C00505400 /* XCTestCase+MemoryLeak.swift in Sources */,
 				2586C6342805AE5900505400 /* CountryCases+TestHelpers.swift in Sources */,
 				2586C6312805AE3500505400 /* TestHelpers.swift in Sources */,
@@ -764,6 +794,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38FC766628097BA200089A48 /* TotalTypesCasesCellController.swift in Sources */,
 				2505D29824432A6D0001EF44 /* UIViewController+Ext.swift in Sources */,
 				2505D294244256820001EF44 /* HomeViewModel.swift in Sources */,
 				38FC765E2807A6B600089A48 /* WeakRefVirtualProxy.swift in Sources */,
@@ -799,6 +830,7 @@
 				2505D2B22443BF250001EF44 /* AvatarImageView.swift in Sources */,
 				38FC765C2807A69900089A48 /* MainQueueDispatchDecorator.swift in Sources */,
 				2505D29F244384ED0001EF44 /* CountryCasesHeaderViewModelItem.swift in Sources */,
+				38FC766828098B2200089A48 /* ChartHeaderCellController.swift in Sources */,
 				38FC765928066ECC00089A48 /* CountryCasesViewModelMapper.swift in Sources */,
 				25C47F8E24408FDF00A4F91F /* MainTabBarController.swift in Sources */,
 				2524FE7E2440C381007ECF56 /* ChartHeaderCell.swift in Sources */,

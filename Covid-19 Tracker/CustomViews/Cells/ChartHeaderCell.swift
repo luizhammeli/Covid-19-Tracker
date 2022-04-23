@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-class ChartHeaderCell: UICollectionViewCell {
+final class ChartHeaderCell: UICollectionViewCell {
     static let cellID = "headerCellID"
 
     let countryLabel: UILabel = {
@@ -68,36 +68,6 @@ extension ChartHeaderCell: CodeView {
         pieChart.fillSuperview()
     }
 
-    func setupChartView(viewModelItem: CountryCasesHeaderViewModel, country: String) {
-        setupViews()
-        
-        countryLabel.text = country
-        let activeDataEntry = PieChartDataEntry(value: viewModelItem.activeCount)
-        let recoveredDataEntry = PieChartDataEntry(value: viewModelItem.recoveredCount)
-        let deathsDataEntry = PieChartDataEntry(value: viewModelItem.deathsCount)
-
-        let dataSet = PieChartDataSet(entries: [activeDataEntry, recoveredDataEntry, deathsDataEntry], label: nil)
-        dataSet.highlightColor = .white
-
-        let chartData = PieChartData(dataSet: dataSet)
-        chartData.setDrawValues(false)
-
-        dataSet.colors = [UIColor(named: Colors.customBlue) ?? UIColor(),
-                          UIColor(named: Colors.customGreen) ?? UIColor(),
-                          UIColor(named: Colors.customRed) ?? UIColor()]
-
-        pieChart.data = chartData
-        pieChart.holeRadiusPercent = 0.85
-        pieChart.holeColor = UIColor(named: Colors.foreground)
-        pieChart.drawEntryLabelsEnabled = false
-
-        setupChartCenterText(value: viewModelItem.strTotalCount)
-        
-        chartsDetailBar.set(activeCount: viewModelItem.strActiveCount,
-                            recoveredCount: viewModelItem.strRecoveredCount,
-                            deathsCount: viewModelItem.strDeathsCount)
-    }
-
     func setupAdditionalConfiguration() {
         backgroundColor = UIColor(named:  Colors.foreground)
 
@@ -106,28 +76,5 @@ extension ChartHeaderCell: CodeView {
         layer.shadowOffset = CGSize(width: 0, height: 4)
         layer.shadowRadius = 9
         layer.shadowOpacity = 0.3
-    }
-
-    func setupChartCenterText(value: String) {
-        let atributtedText = NSMutableAttributedString(string: "\(Labels.totalCases)\n",
-                                                       attributes: [NSAttributedString.Key.foregroundColor : UIColor.white,
-                                                                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12,
-                                                                                                                   weight: .bold)])
-        atributtedText.append(NSAttributedString(string: value,
-                                                 attributes: [NSAttributedString.Key.foregroundColor : UIColor.white,
-                                                              NSAttributedString.Key.font: UIFont.systemFont(ofSize: 17,
-                                                                                                             weight: .heavy)]))
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
-        paragraphStyle.lineSpacing = 8
-
-        let lenght = atributtedText.string.count
-
-        atributtedText.addAttribute(NSAttributedString.Key.paragraphStyle,
-                                    value: paragraphStyle,
-                                    range: NSRange(location: 0,
-                                                   length: lenght))
-
-        pieChart.centerAttributedText = atributtedText
     }
 }

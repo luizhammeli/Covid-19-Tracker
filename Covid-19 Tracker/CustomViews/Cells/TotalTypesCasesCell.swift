@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TotalTypesCasesCell: UICollectionViewCell {
+final class TotalTypesCasesCell: UICollectionViewCell {
    static let cellID = "typerCllID"
 
     let typeLabel: UILabel = {
@@ -29,7 +29,7 @@ class TotalTypesCasesCell: UICollectionViewCell {
         return label
     }()
 
-    let stackView: UIStackView = {
+    private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.spacing = 4
@@ -43,12 +43,6 @@ class TotalTypesCasesCell: UICollectionViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    func set(viewModelItem: CountryCaseTypeViewModel){
-        backgroundColor = UIColor(named: viewModelItem.color ?? "")
-        typeLabel.text = viewModelItem.title
-        countLabel.text = viewModelItem.count
     }
 }
 

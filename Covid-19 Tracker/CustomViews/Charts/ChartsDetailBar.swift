@@ -8,17 +8,16 @@
 
 import UIKit
 
-class ChartsDetailBar: UIView {
-
-    let chartsDetailStackView: UIStackView = {
+final class ChartsDetailBar: UIView {
+    private let chartsDetailStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .equalCentering
         return stackView
     }()
 
-    let activeValue = ChartsDetailView(dotColor: UIColor(named: Colors.customBlue), type: "Active")
-    let recoveredValue = ChartsDetailView(dotColor: UIColor(named: Colors.customGreen), type: "Recovered")
-    let deathsValue = ChartsDetailView(dotColor:UIColor(named:  Colors.customRed), type: "Deaths")
+    private let activeValue = ChartsDetailView(dotColor: UIColor(named: Colors.customBlue), type: "Active")
+    private let recoveredValue = ChartsDetailView(dotColor: UIColor(named: Colors.customGreen), type: "Recovered")
+    private let deathsValue = ChartsDetailView(dotColor:UIColor(named:  Colors.customRed), type: "Deaths")
 
     override init(frame: CGRect) {
         super.init(frame: frame)

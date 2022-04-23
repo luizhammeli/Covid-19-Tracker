@@ -15,7 +15,7 @@ class HomeControllerFactory {
         let homeController = HomeViewController()
         let presenter = HomePresenter(loader: MainQueueDispatchDecorator(instance: loader),
                                       loadingView: WeakRefVirtualProxy(instance: homeController),
-                                      homeView: WeakRefVirtualProxy(instance: homeController),
+                                      homeView: HomeViewAdapter(homeController: homeController),
                                       alertView: WeakRefVirtualProxy(instance: homeController))
         homeController.loadData = presenter.loadBrazilianCases
         return homeController
@@ -32,4 +32,23 @@ class HomeControllerFactory {
         }
         return URL(string: "\(baseUrl)countries/\(Labels.brazil)")!
     }
+}
+
+final class HomeViewAdapter: HomeView {
+    let homeController: HomeViewController
+    
+    init(homeController: HomeViewController) {
+        self.homeController = homeController
+    }
+    
+    func display(viewModel: HomeViewModel) {
+        let section = HomeViewListSection(header: ChartHeaderCellController(viewModel: viewModel.header, country: Labels.brazil),
+                                          list: viewModel.cases.map { TotalTypesCasesCellController(viewModel: $0) })
+        homeController.listModels = [section]
+    }
+}
+
+struct HomeViewListSection {
+    var header: ChartHeaderCellController
+    var list: [TotalTypesCasesCellController]
 }

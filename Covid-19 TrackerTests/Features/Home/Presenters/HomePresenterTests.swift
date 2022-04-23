@@ -9,8 +9,6 @@
 import XCTest
 @testable import Covid_19_Tracker
 
-
-
 final class HomePresenterTests: XCTestCase {
     func test_init_shouldNotLoadAnyCaseData() {
         let (_, spy) = makeSUT()
@@ -29,7 +27,7 @@ final class HomePresenterTests: XCTestCase {
         let (sut, spy) = makeSUT()
         sut.loadBrazilianCases()
         
-        spy.complete(with: .success(makeCountryCase()), at: 0)
+        spy.complete(with: .success(makeCountryCase().model), at: 0)
         
         XCTAssertEqual(spy.messages, [.load(isLoading: true), .load(isLoading: false), .display])
     }
@@ -51,36 +49,5 @@ private extension HomePresenterTests {
         trackForMemoryLeaks(instance: spy)
         trackForMemoryLeaks(instance: sut)
         return (sut, spy)
-    }
-}
-
-final class LoadCountryCasesSpy: CountryCasesLoader, LoadingView, HomeView, AlertView {
-    enum Messages: Equatable {
-        case load(isLoading: Bool)
-        case display
-        case alert(description: String)
-    }
-    
-    var completions = [(CountryCasesLoader.Result) -> Void]()
-    var messages: [Messages] = []
-    
-    func load(completion: @escaping (CountryCasesLoader.Result) -> Void) {
-        self.completions.append(completion)
-    }
-    
-    func complete(with result: CountryCasesLoader.Result, at index: Int) {
-        completions[index](result)
-    }
-    
-    func isLoading(viewModel: LoadingViewModel) {
-        messages.append(.load(isLoading: viewModel.isLoading))
-    }
-    
-    func display(viewModel: HomeViewModel) {
-        messages.append(.display)
-    }
-    
-    func display(message: AlertViewModel) {
-        messages.append(.alert(description: message.description))
     }
 }
