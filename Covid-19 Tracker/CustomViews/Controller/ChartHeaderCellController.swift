@@ -23,7 +23,7 @@ final class ChartHeaderCellController {
     
     func view(in collectionView: UICollectionView, for indexPath: IndexPath) -> UICollectionViewCell {
         cell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                   withReuseIdentifier: ChartHeaderCellController.cellID,
+                                                               withReuseIdentifier: ChartHeaderCellController.cellID,
                                                                for: indexPath) as? ChartHeaderCell
         setupChartView()
         return cell!
@@ -34,27 +34,27 @@ final class ChartHeaderCellController {
         let activeDataEntry = PieChartDataEntry(value: viewModel.activeCount)
         let recoveredDataEntry = PieChartDataEntry(value: viewModel.recoveredCount)
         let deathsDataEntry = PieChartDataEntry(value: viewModel.deathsCount)
-
+        
         let dataSet = PieChartDataSet(entries: [activeDataEntry, recoveredDataEntry, deathsDataEntry], label: nil)
         dataSet.highlightColor = .white
-
+        
         let chartData = PieChartData(dataSet: dataSet)
         chartData.setDrawValues(false)
-
+        
         dataSet.colors = [UIColor(named: Colors.customBlue) ?? UIColor(),
                           UIColor(named: Colors.customGreen) ?? UIColor(),
                           UIColor(named: Colors.customRed) ?? UIColor()]
-
+        
         cell?.pieChart.data = chartData
         cell?.pieChart.holeRadiusPercent = 0.85
         cell?.pieChart.holeColor = UIColor(named: Colors.foreground)
         cell?.pieChart.drawEntryLabelsEnabled = false
-
+        
         setupChartCenterText(value: viewModel.strTotalCount)
         
         cell?.chartsDetailBar.set(activeCount: viewModel.strActiveCount,
-                            recoveredCount: viewModel.strRecoveredCount,
-                            deathsCount: viewModel.strDeathsCount)
+                                  recoveredCount: viewModel.strRecoveredCount,
+                                  deathsCount: viewModel.strDeathsCount)
         
         cell?.setupViews()
     }
@@ -71,14 +71,14 @@ final class ChartHeaderCellController {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         paragraphStyle.lineSpacing = 8
-
+        
         let lenght = atributtedText.string.count
-
+        
         atributtedText.addAttribute(NSAttributedString.Key.paragraphStyle,
                                     value: paragraphStyle,
                                     range: NSRange(location: 0,
                                                    length: lenght))
-
+        
         cell?.pieChart.centerAttributedText = atributtedText
     }
     

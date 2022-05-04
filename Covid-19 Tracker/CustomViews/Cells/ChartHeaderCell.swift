@@ -43,7 +43,7 @@ extension ChartHeaderCell: CodeView {
         addSubview(countryLabel)
         addSubview(chartView)
         addSubview(chartsDetailBar)
-        chartView.addSubview(pieChart)
+        chartView.addSubview(pieChart)                
     }
 
     func setupConstraints() {
