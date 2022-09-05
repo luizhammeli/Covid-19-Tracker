@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol CountryCasesLoader {
-    typealias Result = Swift.Result<CountryCases, ErrorMessages>
-    func load(completion: @escaping (Result) -> Void)
+protocol LoadCountryCases {
+    typealias Result = Swift.Result<WorldCases, ErrorMessages>
+
+    func load(_ completion: @escaping (Result) -> Void)
 }

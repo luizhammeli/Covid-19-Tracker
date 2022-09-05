@@ -59,7 +59,7 @@ final class ChartHeaderCellController {
         cell?.setupViews()
     }
     
-    func setupChartCenterText(value: String) {
+    private func setupChartCenterText(value: String) {
         let atributtedText = NSMutableAttributedString(string: "\(Labels.totalCases)\n",
                                                        attributes: [NSAttributedString.Key.foregroundColor : UIColor.white,
                                                                     NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12,
