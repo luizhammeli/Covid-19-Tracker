@@ -25,6 +25,7 @@ final class HomePresenter {
         loadingView.isLoading(viewModel: .init(isLoading: true))
         loader.load(completion: { [weak self] result in
             guard let self = self else { return }
+
             self.loadingView.isLoading(viewModel: .init(isLoading: false))
             switch result {
             case .success(let cases):

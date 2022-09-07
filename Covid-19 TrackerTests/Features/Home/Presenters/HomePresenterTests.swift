@@ -40,14 +40,27 @@ final class HomePresenterTests: XCTestCase {
         
         XCTAssertEqual(spy.messages, [.load(isLoading: true), .load(isLoading: false), .alert(description: ErrorMessages.genericError.rawValue)])
     }
+    
+    func test_loadBrazilianCases_shouldNotCompleteIfInstanceHasBeenDealocated() {
+        let spy = LoadCountryCasesSpy()
+        var sut: HomePresenter? = HomePresenter(loader: spy, loadingView: spy, homeView: spy, alertView: spy)
+        
+        sut?.loadBrazilianCases()
+        sut = nil
+        spy.complete(with: .success(makeCountryCase().model), at: 0)
+        
+        XCTAssertEqual(spy.messages, [.load(isLoading: true)])
+    }
 }
 
 private extension HomePresenterTests {
     func makeSUT() -> (HomePresenter, LoadCountryCasesSpy) {
         let spy = LoadCountryCasesSpy()
         let sut = HomePresenter(loader: spy, loadingView: spy, homeView: spy, alertView: spy)
+
         trackForMemoryLeaks(instance: spy)
         trackForMemoryLeaks(instance: sut)
+
         return (sut, spy)
     }
 }
