@@ -11,5 +11,5 @@ import Foundation
 protocol AllCountriesLoader {
     typealias Result = Swift.Result<[CountryCases], ErrorMessages>
 
-    func AllCountriesCasesDataLoader(_ completion: @escaping(Result) -> Void)
+    func load(completion: @escaping(Result) -> Void)
 }

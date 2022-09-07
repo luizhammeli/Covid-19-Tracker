@@ -32,6 +32,13 @@ class HomeControllerFactory {
         }
         return URL(string: "\(baseUrl)countries/\(Labels.brazil)")!
     }
+    
+    static func makeDefaultWorldCasesURL() -> URL {
+        guard let baseUrl = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String else {
+            fatalError("No such url as BASE_URL in info.plist")
+        }
+        return URL(string: "\(baseUrl)all/")!
+    }
 }
 
 final class HomeViewAdapter: HomeView {

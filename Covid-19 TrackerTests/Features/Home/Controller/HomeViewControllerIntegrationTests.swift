@@ -11,14 +11,13 @@ import XCTest
 
 final class HomeViewControllerIntegrationTests: XCTestCase {
     func test_init_doesNotLoadData() {
-        let (_, spy) = makeSUT()
+        let (_, spy) = makeSUT(loadView: false)
         
         XCTAssertTrue(spy.completions.isEmpty)
     }
     
     func test_loadData_shouldNotRenderAnyCell() {
         let (sut, spy) = makeSUT()
-        sut.loadViewIfNeeded()
         
         spy.complete(with: .failure(.invalidData), at: 0)
         
@@ -29,9 +28,9 @@ final class HomeViewControllerIntegrationTests: XCTestCase {
         let (sut, spy) = makeSUT()
         
         XCTAssertFalse(sut.isRefreshing())
-        sut.loadViewIfNeeded()
         
         sut.simulateRefreshing()
+        
         XCTAssertTrue(sut.isRefreshing())
         
         spy.complete(with: .failure(.invalidData), at: 0)
@@ -40,7 +39,6 @@ final class HomeViewControllerIntegrationTests: XCTestCase {
     
     func test_showLoader_shouldShowAndHideLoaderCorrectly() {
         let (sut, spy) = makeSUT()
-        sut.loadViewIfNeeded()
         
         XCTAssertTrue(sut.isLoading())
         
@@ -52,7 +50,6 @@ final class HomeViewControllerIntegrationTests: XCTestCase {
     
     func test_loadData_shouldRenderCorrectNumberOfCells() {
         let (sut, spy) = makeSUT()
-        sut.loadViewIfNeeded()
         
         XCTAssertEqual(sut.numberOfRenderedViews(), 0)
         
@@ -64,7 +61,6 @@ final class HomeViewControllerIntegrationTests: XCTestCase {
     func test_loadData_shouldRenderFirstCellCorrectly() {
         let cases = makeCountryCase()
         let (sut, spy) = makeSUT()
-        sut.loadViewIfNeeded()
         
         spy.complete(with: .success(cases.model), at: 0)
         
@@ -78,7 +74,6 @@ final class HomeViewControllerIntegrationTests: XCTestCase {
     func test_loadData_shouldRenderHeaderCellCorrectly() {
         let cases = makeCountryCase()
         let (sut, spy) = makeSUT()
-        sut.loadViewIfNeeded()
         
         spy.complete(with: .success(cases.model), at: 0)
         
@@ -92,9 +87,12 @@ final class HomeViewControllerIntegrationTests: XCTestCase {
 }
 
 private extension HomeViewControllerIntegrationTests {
-    func makeSUT() -> (HomeViewController, LoadCountryCasesSpy) {
+    func makeSUT(loadView: Bool = true) -> (HomeViewController, LoadCountryCasesSpy) {
         let spy = LoadCountryCasesSpy()
         let sut  = HomeControllerFactory.makeHomeController(loader: spy)
+        
+        if loadView { sut.loadViewIfNeeded() }
+        
         return (sut, spy)
     }
 }

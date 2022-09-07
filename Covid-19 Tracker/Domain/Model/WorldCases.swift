@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WorldCases:Codable {
+struct WorldCases: Codable, Equatable {
     let cases: Int
     let todayCases: Int
     let deaths: Int

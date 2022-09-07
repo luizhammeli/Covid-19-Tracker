@@ -37,6 +37,21 @@ func makeCountryCase() -> (model: CountryCases, header: CountryCasesHeaderViewMo
     [CountryCaseTypeViewModel(title: "Cases Today", count: "70.000", color: "CustomLightGreen")])
 }
 
+func makeWorldCases() -> WorldCases {
+    return WorldCases(cases: 1,
+                      todayCases: 2,
+                      deaths: 3,
+                      todayDeaths: 4,
+                      recovered: 5,
+                      active: 0,
+                      critical: 0,
+                      casesPerOneMillion: 0,
+                      deathsPerOneMillion: 0,
+                      tests: 0,
+                      testsPerOneMillion: 0,
+                      affectedCountries: 0)
+}
+
 func makeData() -> Data {
     return "New Test".data(using: .utf8)!
 }
