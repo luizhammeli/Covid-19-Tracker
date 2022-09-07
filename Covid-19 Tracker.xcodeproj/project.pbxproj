@@ -48,6 +48,8 @@
 		258C1C5C28C7B10800968D7F /* LoadAllCountriesCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C5B28C7B10800968D7F /* LoadAllCountriesCases.swift */; };
 		258C1C6028C7B1EB00968D7F /* LoadWorldCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C5F28C7B1EB00968D7F /* LoadWorldCasesTests.swift */; };
 		258C1C6228C7BBDE00968D7F /* LoadAllCountriesCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C6128C7BBDE00968D7F /* LoadAllCountriesCasesTests.swift */; };
+		258C1C6528C8B34A00968D7F /* WorldCasesWithCountriesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C6428C8B34A00968D7F /* WorldCasesWithCountriesLoader.swift */; };
+		258C1C6728C8B39400968D7F /* AllCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C6628C8B39400968D7F /* AllCases.swift */; };
 		25AE9C312440AD410093F3E2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE9C302440AD410093F3E2 /* CodeView.swift */; };
 		25C47F7A24408F5500A4F91F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F7924408F5500A4F91F /* AppDelegate.swift */; };
 		25C47F7C24408F5500A4F91F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F7B24408F5500A4F91F /* SceneDelegate.swift */; };
@@ -122,6 +124,8 @@
 		258C1C5B28C7B10800968D7F /* LoadAllCountriesCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAllCountriesCases.swift; sourceTree = "<group>"; };
 		258C1C5F28C7B1EB00968D7F /* LoadWorldCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadWorldCasesTests.swift; sourceTree = "<group>"; };
 		258C1C6128C7BBDE00968D7F /* LoadAllCountriesCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAllCountriesCasesTests.swift; sourceTree = "<group>"; };
+		258C1C6428C8B34A00968D7F /* WorldCasesWithCountriesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCasesWithCountriesLoader.swift; sourceTree = "<group>"; };
+		258C1C6628C8B39400968D7F /* AllCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCases.swift; sourceTree = "<group>"; };
 		25AE9C302440AD410093F3E2 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		25C47F7624408F5500A4F91F /* Covid-19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C47F7924408F5500A4F91F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -341,6 +345,7 @@
 			children = (
 				25468392244242E2009E238A /* WorldCases.swift */,
 				2505D28D2442441F0001EF44 /* CountryCases.swift */,
+				258C1C6628C8B39400968D7F /* AllCases.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				2586C62B2805ADD100505400 /* CountryCasesLoader.swift */,
 				38E3564128C540EA00D5FB4D /* WorldCasesLoader.swift */,
 				38E3564328C5416400D5FB4D /* AllCountriesLoader.swift */,
+				258C1C6428C8B34A00968D7F /* WorldCasesWithCountriesLoader.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -820,6 +826,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38FC766628097BA200089A48 /* TotalTypesCasesCellController.swift in Sources */,
+				258C1C6728C8B39400968D7F /* AllCases.swift in Sources */,
 				2505D29824432A6D0001EF44 /* UIViewController+Ext.swift in Sources */,
 				2505D294244256820001EF44 /* HomeViewModel.swift in Sources */,
 				38FC765E2807A6B600089A48 /* WeakRefVirtualProxy.swift in Sources */,
@@ -827,6 +834,7 @@
 				25C47F7E24408F5500A4F91F /* HomeViewController.swift in Sources */,
 				252793B32806F9070044CA1A /* AlertViewModel.swift in Sources */,
 				25D9AF7C2440A889006BD732 /* CustomNavigationController.swift in Sources */,
+				258C1C6528C8B34A00968D7F /* WorldCasesWithCountriesLoader.swift in Sources */,
 				2505D2AA24438CCA0001EF44 /* Int+Ext.swift in Sources */,
 				2505D29C244377990001EF44 /* WorldCasesCollectionViewController.swift in Sources */,
 				2505D28E2442441F0001EF44 /* CountryCases.swift in Sources */,
