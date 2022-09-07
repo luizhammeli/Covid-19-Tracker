@@ -15,9 +15,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "complete(with:at:)"
-            landmarkType = "7">
+            endingLineNumber = "72">
             <Locations>
                <Location
                   uuid = "57E844CA-EF30-4158-82A2-3FF416C12800 - feaecfcdfb5f9bac"
@@ -55,16 +53,329 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DD4C2F0B-A95E-4F60-893B-D1EBF8B1E0D7"
+            uuid = "7C044639-B4DC-4213-A4B5-B7CE5D25DDC1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Covid-19 Tracker/CustomViews/Controller/MainTabBarController.swift"
+            filePath = "Covid-19 TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "setupControllers()"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "expect(sut:with:when:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7C044639-B4DC-4213-A4B5-B7CE5D25DDC1 - ef35842b18017588"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadWorldCasesSpy.load(completion: (Swift.Result&lt;Covid_19_Tracker.WorldCases, Covid_19_Tracker.ErrorMessages&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "352">
+               </Location>
+               <Location
+                  uuid = "7C044639-B4DC-4213-A4B5-B7CE5D25DDC1 - 1dfc47b14ea41ae4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.expect(sut: Covid_19_Tracker.LoadAllCases, with: Swift.Result&lt;Covid_19_Tracker.AllCases, Covid_19_Tracker.ErrorMessages&gt;, when: () -&gt; ()) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "1380">
+               </Location>
+               <Location
+                  uuid = "7C044639-B4DC-4213-A4B5-B7CE5D25DDC1 - 1dfc47b14ea41aa6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.expect(sut: Covid_19_Tracker.LoadAllCases, with: Swift.Result&lt;Covid_19_Tracker.AllCases, Covid_19_Tracker.ErrorMessages&gt;, when: () -&gt; ()) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "1380">
+               </Location>
+               <Location
+                  uuid = "7C044639-B4DC-4213-A4B5-B7CE5D25DDC1 - 1dfc47b14ea41a79"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.expect(sut: Covid_19_Tracker.LoadAllCases, with: Swift.Result&lt;Covid_19_Tracker.AllCases, Covid_19_Tracker.ErrorMessages&gt;, when: () -&gt; ()) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "1380">
+               </Location>
+               <Location
+                  uuid = "7C044639-B4DC-4213-A4B5-B7CE5D25DDC1 - 1dfc47b14ea41a18"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.expect(sut: Covid_19_Tracker.LoadAllCases, with: Swift.Result&lt;Covid_19_Tracker.AllCases, Covid_19_Tracker.ErrorMessages&gt;, when: () -&gt; ()) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "1380">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FBD0FCC6-0B9A-4094-9AE3-58B3148787E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Covid-19 TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "waiter(_:didTimeoutWithUnfulfilledExpectations:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FBD0FCC6-0B9A-4094-9AE3-58B3148787E5 - c210f4604bf01217"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "656">
+               </Location>
+               <Location
+                  uuid = "FBD0FCC6-0B9A-4094-9AE3-58B3148787E5 - c210f4604bf013d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "784">
+               </Location>
+               <Location
+                  uuid = "FBD0FCC6-0B9A-4094-9AE3-58B3148787E5 - c210f4604bf013b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "784">
+               </Location>
+               <Location
+                  uuid = "FBD0FCC6-0B9A-4094-9AE3-58B3148787E5 - c210f4604bf0139b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "784">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9115688-BB81-4426-9C68-D8547AE03E0F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Covid-19 TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "waiter(_:didTimeoutWithUnfulfilledExpectations:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D9115688-BB81-4426-9C68-D8547AE03E0F - c210f4604bf0139b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "972">
+               </Location>
+               <Location
+                  uuid = "D9115688-BB81-4426-9C68-D8547AE03E0F - c210f4604bf0137a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "972">
+               </Location>
+               <Location
+                  uuid = "D9115688-BB81-4426-9C68-D8547AE03E0F - c210f4604bf01359"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "972">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FFA6310A-99BB-4FC7-914C-D953654FB399"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Covid-19 TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "waiter(_:didTimeoutWithUnfulfilledExpectations:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FFA6310A-99BB-4FC7-914C-D953654FB399 - c210f4604bf013f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "FFA6310A-99BB-4FC7-914C-D953654FB399 - c210f4604bf013d5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "FFA6310A-99BB-4FC7-914C-D953654FB399 - c210f4604bf013b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Covid_19_TrackerTests.LoadAllCasesTests.waiter(_: __C.XCTWaiter, didTimeoutWithUnfulfilledExpectations: Swift.Array&lt;__C.XCTestExpectation&gt;) -&gt; ()"
+                  moduleName = "Covid-19 TrackerTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luizdinizhammerli/GitHub/Covid-19-Tracker/Covid-19%20TrackerTests/Features/World/UseCases/LoadAllCasesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "292">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9D3596D2-81EF-4316-9798-73CC37D5FF0C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Covid-19 Tracker/Features/World/UseCases/LoadAllCases.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "load(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9AE0489D-C666-469D-BFC8-A9886CE3B151"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Covid-19 Tracker/Features/World/UseCases/LoadAllCases.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "load(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

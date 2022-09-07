@@ -50,6 +50,8 @@
 		258C1C6228C7BBDE00968D7F /* LoadAllCountriesCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C6128C7BBDE00968D7F /* LoadAllCountriesCasesTests.swift */; };
 		258C1C6528C8B34A00968D7F /* WorldCasesWithCountriesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C6428C8B34A00968D7F /* WorldCasesWithCountriesLoader.swift */; };
 		258C1C6728C8B39400968D7F /* AllCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C6628C8B39400968D7F /* AllCases.swift */; };
+		258C1C6A28C910A400968D7F /* LoadAllCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C6928C910A400968D7F /* LoadAllCases.swift */; };
+		258C1C6C28C91AD400968D7F /* LoadAllCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258C1C6B28C91AD400968D7F /* LoadAllCasesTests.swift */; };
 		25AE9C312440AD410093F3E2 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AE9C302440AD410093F3E2 /* CodeView.swift */; };
 		25C47F7A24408F5500A4F91F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F7924408F5500A4F91F /* AppDelegate.swift */; };
 		25C47F7C24408F5500A4F91F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C47F7B24408F5500A4F91F /* SceneDelegate.swift */; };
@@ -126,6 +128,8 @@
 		258C1C6128C7BBDE00968D7F /* LoadAllCountriesCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAllCountriesCasesTests.swift; sourceTree = "<group>"; };
 		258C1C6428C8B34A00968D7F /* WorldCasesWithCountriesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCasesWithCountriesLoader.swift; sourceTree = "<group>"; };
 		258C1C6628C8B39400968D7F /* AllCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCases.swift; sourceTree = "<group>"; };
+		258C1C6928C910A400968D7F /* LoadAllCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAllCases.swift; sourceTree = "<group>"; };
+		258C1C6B28C91AD400968D7F /* LoadAllCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadAllCasesTests.swift; sourceTree = "<group>"; };
 		25AE9C302440AD410093F3E2 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
 		25C47F7624408F5500A4F91F /* Covid-19 Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19 Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C47F7924408F5500A4F91F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -453,6 +457,7 @@
 			children = (
 				258C1C5828C7AF9100968D7F /* LoadWorldCases.swift */,
 				258C1C5B28C7B10800968D7F /* LoadAllCountriesCases.swift */,
+				258C1C6928C910A400968D7F /* LoadAllCases.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 			children = (
 				258C1C5F28C7B1EB00968D7F /* LoadWorldCasesTests.swift */,
 				258C1C6128C7BBDE00968D7F /* LoadAllCountriesCasesTests.swift */,
+				258C1C6B28C91AD400968D7F /* LoadAllCasesTests.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -812,6 +818,7 @@
 				258C1C6228C7BBDE00968D7F /* LoadAllCountriesCasesTests.swift in Sources */,
 				256111E52800A07F003A6B75 /* URLSessionHttpClientTests.swift in Sources */,
 				2586C6372805AE8900505400 /* HttpClientSpy.swift in Sources */,
+				258C1C6C28C91AD400968D7F /* LoadAllCasesTests.swift in Sources */,
 				3815ED7E2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift in Sources */,
 				38FC766C280ACC2E00089A48 /* HomeViewControllerIntegrationTests.swift in Sources */,
 				2586C63C2805E68C00505400 /* XCTestCase+MemoryLeak.swift in Sources */,
@@ -865,6 +872,7 @@
 				2505D2B22443BF250001EF44 /* AvatarImageView.swift in Sources */,
 				38FC765C2807A69900089A48 /* MainQueueDispatchDecorator.swift in Sources */,
 				2505D29F244384ED0001EF44 /* CountryCasesHeaderViewModelItem.swift in Sources */,
+				258C1C6A28C910A400968D7F /* LoadAllCases.swift in Sources */,
 				38FC766828098B2200089A48 /* ChartHeaderCellController.swift in Sources */,
 				38FC765928066ECC00089A48 /* CountryCasesViewModelMapper.swift in Sources */,
 				25C47F8E24408FDF00A4F91F /* MainTabBarController.swift in Sources */,

@@ -9,6 +9,6 @@
 import Foundation
 
 struct AllCases: Codable, Equatable {
-    let worldCases: WorldCases
+    let worldCases: WorldCases?
     let countryCases: [CountryCases]
 }
