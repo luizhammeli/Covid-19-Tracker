@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct AlertViewModel {
+struct AlertViewModel: Equatable {
     let description: String
 }

@@ -52,6 +52,10 @@ func makeWorldCases() -> WorldCases {
                       affectedCountries: 0)
 }
 
+func makeAllCases() -> AllCases {
+    return AllCases(worldCases: makeWorldCases(), countryCases: [makeCountryCase().model])
+}
+
 func makeData() -> Data {
     return "New Test".data(using: .utf8)!
 }

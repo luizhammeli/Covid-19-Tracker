@@ -8,26 +8,26 @@
 
 import UIKit
 
-struct CountryCaseTypeViewModelItem {
+struct CountryCaseTypeViewModelItem: Equatable {
     let title: String
     let count: String
     let color: UIColor?
 }
 
-struct CountryCasesViewModelItem {
+struct CountryCasesViewModelItem: Equatable {
     let countryCaseTypeViewModelItem: [CountryCaseTypeViewModelItem]
     let countryName: String
     let countryFlagUrl: String
     let totalCases: String
 }
 
-struct CountryCaseTypeViewModel {
+struct CountryCaseTypeViewModel: Equatable {
     let title: String
     let count: String
     let color: String?
 }
 
-struct CountryCasesViewModel {
+struct CountryCasesViewModel: Equatable {
     let countryCaseTypeViewModelItem: [CountryCaseTypeViewModel]
     let countryName: String
     let countryFlagUrl: String

@@ -9,11 +9,11 @@
 import Foundation
 
 final class WorldCasesPresenter {
-    private let loader: LoadAllCases
+    private let loader: WorldCasesWithCountriesLoader
     private let alertView: AlertView
     private let worldCasesView: WorldCasesView
 
-    init(loader: LoadAllCases, alertView: AlertView, worldCasesView: WorldCasesView){
+    init(loader: WorldCasesWithCountriesLoader, alertView: AlertView, worldCasesView: WorldCasesView){
         self.worldCasesView = worldCasesView
         self.loader = loader
         self.alertView = alertView
@@ -59,7 +59,6 @@ final class WorldCasesPresenter {
         }
     }
 }
-
 
 protocol WorldCasesView {
     func display(viewModel: WorldCasesViewModelItem)
