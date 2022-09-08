@@ -74,3 +74,8 @@ final class WorldCasesViewModel {
         return countryCasesHeaderViewModelItem
     }
 }
+
+struct WorldCasesViewModelItem {
+    let header: CountryCasesHeaderViewModelItem?
+    let items: [CountryCasesViewModelItem]
+}
