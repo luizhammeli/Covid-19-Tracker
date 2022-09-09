@@ -10,6 +10,16 @@ import UIKit
 
 extension UIViewController {
     func showDefaultAlertOnMainThread(title: String, message: String) {
+        if Thread.isMainThread {
+            showDefaultAlert(title: title, message: message)
+        } else {
+            DispatchQueue.main.async { [weak self] in
+                self?.showDefaultAlert(title: title, message: message)
+            }
+        }
+    }
+    
+    private func showDefaultAlert(title: String, message: String) {
         DispatchQueue.main.async {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 

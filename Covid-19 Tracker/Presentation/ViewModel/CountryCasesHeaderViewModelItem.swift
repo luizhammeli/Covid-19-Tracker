@@ -8,17 +8,6 @@
 
 import Foundation
 
-struct CountryCasesHeaderViewModelItem: Codable, Equatable {
-    let strTotalCount: String
-    let strActiveCount: String
-    let strRecoveredCount: String
-    let strDeathsCount: String
-
-    let activeCount: Double
-    let recoveredCount: Double
-    let deathsCount: Double
-}
-
 struct CountryCasesHeaderViewModel: Codable, Equatable {
     let strTotalCount: String
     let strActiveCount: String

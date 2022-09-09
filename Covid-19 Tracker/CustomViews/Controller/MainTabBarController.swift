@@ -19,9 +19,8 @@ class MainTabBarController: UITabBarController {
         let navController = CustomNavigationController(rootViewController: HomeControllerFactory.makeHomeController())
         navController.tabBarItem.title = Labels.home
         navController.tabBarItem.image = UIImage(systemName: "house.fill")
-
-        //let worldController = WorldCasesCollectionViewController(viewModel: WorldCasesViewModel(service: WorldCasesServices()))
-        let navController1 = CustomNavigationController(rootViewController: UIViewController())
+        
+        let navController1 = CustomNavigationController(rootViewController: WorldCasesViewControllerFactory.makeWorldCasesViewControllerFactory())
         navController1.tabBarItem.title = Labels.world
         navController1.tabBarItem.image = UIImage(systemName: "globe")
 

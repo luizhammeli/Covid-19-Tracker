@@ -33,3 +33,14 @@ extension MainQueueDispatchDecorator: CountryCasesLoader where T == CountryCases
         }
     }
 }
+
+extension MainQueueDispatchDecorator: WorldCasesWithCountriesLoader where T == WorldCasesWithCountriesLoader {
+    func load(completion: @escaping (WorldCasesWithCountriesLoader.Result) -> Void) {
+        instance.load { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
+        }
+    }
+}
+

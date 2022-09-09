@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct LoadingViewModel {
+struct LoadingViewModel: Equatable {
     let isLoading: Bool
 }

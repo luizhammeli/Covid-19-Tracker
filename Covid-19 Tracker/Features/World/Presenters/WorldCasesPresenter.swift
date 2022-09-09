@@ -11,17 +11,21 @@ import Foundation
 final class WorldCasesPresenter {
     private let loader: WorldCasesWithCountriesLoader
     private let alertView: AlertView
+    private let loadingView: LoadingView
     private let worldCasesView: WorldCasesView
-
-    init(loader: WorldCasesWithCountriesLoader, alertView: AlertView, worldCasesView: WorldCasesView){
+    
+    init(loader: WorldCasesWithCountriesLoader, alertView: AlertView, worldCasesView: WorldCasesView, loadingView: LoadingView){
         self.worldCasesView = worldCasesView
         self.loader = loader
         self.alertView = alertView
+        self.loadingView = loadingView
     }
     
     func loadCases() {
+        loadingView.isLoading(viewModel: .init(isLoading: true))
         loader.load { [weak self] result in
             guard let self = self else { return }
+            self.loadingView.isLoading(viewModel: .init(isLoading: false))
             
             switch result {
             case .success(let cases):
@@ -33,15 +37,15 @@ final class WorldCasesPresenter {
         }
     }
     
-    private func mapToViewModel(allCases: AllCases) -> WorldCasesViewModelItem {
-        return WorldCasesViewModelItem(header: mapViewModelHeaderItem(data: allCases.worldCases),
-                                       items: mapViewModelListItems(data: allCases.countryCases))
+    private func mapToViewModel(allCases: AllCases) -> WorldCasesViewModel {
+        return WorldCasesViewModel(header: mapViewModelHeaderItem(data: allCases.worldCases),
+                                   items: mapViewModelListItems(data: allCases.countryCases))
     }
     
-    private func mapViewModelHeaderItem(data: WorldCases?) -> CountryCasesHeaderViewModelItem? {
+    private func mapViewModelHeaderItem(data: WorldCases?) -> CountryCasesHeaderViewModel? {
         guard let data = data else { return nil }
         
-        return CountryCasesHeaderViewModelItem(strTotalCount: data.cases.formatNumber(),
+        return CountryCasesHeaderViewModel(strTotalCount: data.cases.formatNumber(),
                                                strActiveCount: data.active.formatNumber(),
                                                strRecoveredCount: data.recovered.formatNumber(),
                                                strDeathsCount: data.deaths.formatNumber(),
@@ -49,17 +53,17 @@ final class WorldCasesPresenter {
                                                recoveredCount: Double(data.recovered),
                                                deathsCount: Double(data.deaths))
     }
-
-    private func mapViewModelListItems(data: [CountryCases]) -> [CountryCasesViewModelItem] {
+    
+    private func mapViewModelListItems(data: [CountryCases]) -> [CountryCasesViewModel] {
         data.map { countryCase in
-            CountryCasesViewModelItem(countryCaseTypeViewModelItem: [],
-                                      countryName: countryCase.country,
-                                      countryFlagUrl: countryCase.countryInfo.flag,
-                                      totalCases: "\(Labels.totalCases): \(countryCase.cases)")
+            CountryCasesViewModel(countryCaseTypeViewModelItem: [],
+                                  countryName: countryCase.country,
+                                  countryFlagUrl: countryCase.countryInfo.flag,
+                                  totalCases: "\(Labels.totalCases): \(countryCase.cases)")
         }
     }
 }
 
 protocol WorldCasesView {
-    func display(viewModel: WorldCasesViewModelItem)
+    func display(viewModel: WorldCasesViewModel)
 }

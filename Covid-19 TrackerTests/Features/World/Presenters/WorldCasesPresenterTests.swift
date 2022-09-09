@@ -16,62 +16,57 @@ final class WorldCasesPresenterTests: XCTestCase {
         
         XCTAssertTrue(spy.messages.isEmpty)
     }
-    
+
     func test_loadCases_shouldCallAlertViewDelegateIfLoadFails() {
         let (sut, spy, viewSpy) = makeSUT()
+        let expectedData: [AlertViewSpy.Messages] = [
+            .loading(.init(isLoading: true)),
+            .loading(.init(isLoading: false)),
+            .alert(.init(description: "The data received from the server was invalid. Please try again."))
+        ]
         
         sut.loadCases()
         spy.complete(with: .failure(.invalidData))
         
-        XCTAssertEqual(viewSpy.receivedAlertMessages, [AlertViewModel(description: "The data received from the server was invalid. Please try again.")])
+        XCTAssertEqual(viewSpy.messages, expectedData)
     }
-    
-    func test_loadCases_shouldNotDeliverDataIfLoadFails() {
-        let (sut, spy, viewSpy) = makeSUT()
-        
-        sut.loadCases()
-        spy.complete(with: .failure(.invalidData))
-        
-        XCTAssertTrue(viewSpy.receivedViewMessages.isEmpty)    }
-    
-    func test_loadCases_shouldNotCallAlertDelegateIfLoadSucceed() {
-        let (sut, spy, viewSpy) = makeSUT()
-        
-        sut.loadCases()
-        spy.complete(with: .success(makeAllCases()))
-        
-        XCTAssertTrue(viewSpy.receivedAlertMessages.isEmpty)
-    }
-    
-    func test_loadCases_shouldDeliverDataIfLoadSucceed() {
-        let (sut, spy, viewSpy) = makeSUT()
-        
-        sut.loadCases()
-        spy.complete(with: .success(makeAllCases()))
-        
-        XCTAssertFalse(viewSpy.receivedViewMessages.isEmpty)
-    }
-    
+
     func test_loadCases_shouldDeliverDataIfLoadSucceedWithEmptyData() {
         let (sut, spy, viewSpy) = makeSUT()
+        let expectedData: [AlertViewSpy.Messages] = [
+            .loading(.init(isLoading: true)),
+            .loading(.init(isLoading: false)),
+            .view(.init(header: nil, items: []))
+        ]
         
         sut.loadCases()
         spy.complete(with: .success(AllCases(worldCases: nil, countryCases: [])))
         
-        XCTAssertEqual(viewSpy.receivedViewMessages, [.init(header: nil, items: [])])
+        XCTAssertEqual(viewSpy.messages, expectedData)
+    }
+    
+    func test_loadCases_shouldDeliverDataIfLoadSucceedWithNonEmptyData() {
+        let (sut, spy, viewSpy) = makeSUT()
+        
+        sut.loadCases()
+        spy.complete(with: .success(AllCases(worldCases: makeWorldCases(), countryCases: [makeCountryCase().model])))
+        
+        guard case .view = viewSpy.messages.last else {
+            XCTFail("Expected View message as last event instead got \(String(describing: viewSpy.messages.last))")
+            return
+        }
     }
     
     func test_loadCases_shouldNotCompleteIfInstanceHasBeenDealocated() {
         let useCaseSpy = LoadAllCasesSpy()
         let viewSpy = AlertViewSpy()
-        var sut: WorldCasesPresenter? = WorldCasesPresenter(loader: useCaseSpy, alertView: viewSpy, worldCasesView: viewSpy)
+        var sut: WorldCasesPresenter? = WorldCasesPresenter(loader: useCaseSpy, alertView: viewSpy, worldCasesView: viewSpy, loadingView: viewSpy)
         
         sut?.loadCases()
         sut = nil
         useCaseSpy.complete(with: .success(makeAllCases()))
         
-        XCTAssertTrue(viewSpy.receivedViewMessages.isEmpty)
-        XCTAssertTrue(viewSpy.receivedAlertMessages.isEmpty)
+        XCTAssertEqual(viewSpy.messages, [.loading(.init(isLoading: true))])
     }
 }
 
@@ -79,8 +74,8 @@ private extension WorldCasesPresenterTests {
     func makeSUT() -> (WorldCasesPresenter, LoadAllCasesSpy, AlertViewSpy) {
         let useCaseSpy = LoadAllCasesSpy()
         let alertViewSpy = AlertViewSpy()
-        let sut = WorldCasesPresenter(loader: useCaseSpy, alertView: alertViewSpy, worldCasesView: alertViewSpy)
-        
+        let sut = WorldCasesPresenter(loader: useCaseSpy, alertView: alertViewSpy, worldCasesView: alertViewSpy, loadingView: alertViewSpy)
+
         trackForMemoryLeaks(instance: useCaseSpy)
         trackForMemoryLeaks(instance: alertViewSpy)
         trackForMemoryLeaks(instance: sut)
@@ -89,16 +84,25 @@ private extension WorldCasesPresenterTests {
     }
 }
 
-final class AlertViewSpy: AlertView, WorldCasesView {
-    var receivedAlertMessages: [AlertViewModel] = []
-    var receivedViewMessages: [WorldCasesViewModelItem] = []
+final class AlertViewSpy: AlertView, WorldCasesView, LoadingView {
+    var messages = [Messages]()
+    
+    enum Messages: Equatable {
+        case alert(AlertViewModel)
+        case view(WorldCasesViewModel)
+        case loading(LoadingViewModel)
+    }
 
     func display(message: AlertViewModel) {
-        receivedAlertMessages.append(message)
+        messages.append(.alert(message))
     }
     
-    func display(viewModel: WorldCasesViewModelItem) {
-        receivedViewMessages.append(viewModel)
+    func display(viewModel: WorldCasesViewModel) {
+        messages.append(.view(viewModel))
+    }
+
+    func isLoading(viewModel: LoadingViewModel) {
+        messages.append(.loading(viewModel))
     }
 }
 

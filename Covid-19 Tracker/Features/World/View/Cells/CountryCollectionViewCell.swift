@@ -48,13 +48,9 @@ class CountryCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
-        self.flagImageView.image = nil
-    }
-
-    func set(item: CountryCasesViewModelItem) {
-        nameLabel.text = item.countryName
-        totalCasesLabel.text = item.totalCases
-        flagImageView.fetchImage(stringUrl: item.countryFlagUrl)
+        flagImageView.image = nil
+        totalCasesLabel.text = ""
+        nameLabel.text = ""
     }
 }
 

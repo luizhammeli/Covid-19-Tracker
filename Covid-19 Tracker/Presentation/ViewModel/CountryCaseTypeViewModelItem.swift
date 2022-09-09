@@ -14,13 +14,6 @@ struct CountryCaseTypeViewModelItem: Equatable {
     let color: UIColor?
 }
 
-struct CountryCasesViewModelItem: Equatable {
-    let countryCaseTypeViewModelItem: [CountryCaseTypeViewModelItem]
-    let countryName: String
-    let countryFlagUrl: String
-    let totalCases: String
-}
-
 struct CountryCaseTypeViewModel: Equatable {
     let title: String
     let count: String
