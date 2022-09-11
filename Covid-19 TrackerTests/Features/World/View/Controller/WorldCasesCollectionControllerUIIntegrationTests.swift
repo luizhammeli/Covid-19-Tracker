@@ -89,6 +89,17 @@ final class WorldCasesCollectionControllerUIIntegrationTests: XCTestCase {
                 
         XCTAssertNotNil(sut.header(at: IndexPath(row: 0, section: 0)))        
     }
+    
+    func test_headerView_() {
+        let fakeCountryCase = [makeCountryCase().model, makeCountryCase().model]
+        let (sut, spy) = makeSUT()
+        
+        spy.complete(with: .success(.init(worldCases: makeWorldCases(), countryCases: fakeCountryCase)))
+        sut.header(at: IndexPath(row: 0, section: 0))
+        sut.didEndDisplayingHeaderView(at: IndexPath(row: 0, section: 0))
+                
+        XCTAssertNil(sut.listSections.first?.header.cell)
+    }
 }
 
 private extension WorldCasesCollectionControllerUIIntegrationTests {
@@ -138,6 +149,7 @@ extension WorldCasesCollectionViewController {
         return collectionView(collectionView, cellForItemAt: indexPath) as? CountryCollectionViewCell
     }
     
+    @discardableResult
     func header(at indexPath: IndexPath) -> ChartHeaderCell? {
         cell(for: indexPath)
         return collectionView(collectionView,
@@ -152,6 +164,14 @@ extension WorldCasesCollectionViewController {
     
     func numberOfSection() -> Int {        
         return numberOfSections(in: collectionView)
+    }
+    
+    func didEndDisplayingHeaderView(at indexPath: IndexPath) {
+        header(at: indexPath)
+        collectionView(self.collectionView,
+                        didEndDisplayingSupplementaryView: UICollectionReusableView(),
+                        forElementOfKind: UICollectionView.elementKindSectionHeader,
+                        at: indexPath)
     }
 }
 
