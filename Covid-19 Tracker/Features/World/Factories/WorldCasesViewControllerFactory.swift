@@ -22,17 +22,17 @@ final class WorldCasesViewControllerFactory {
         return controller
     }
 
-    static func makeLoadWorldCases(httpClient: HttpClient = URLSessionHttpClient(),
+    private static func makeLoadWorldCases(httpClient: HttpClient = URLSessionHttpClient(),
                                    url: URL = makeDefaultWorldCasesURL()) -> WorldCasesLoader {
         return LoadWorldCases(url: url, httpClient: httpClient)
     }
     
-    static func makeLoadAllCountriesCases(httpClient: HttpClient = URLSessionHttpClient(),
+    private  static func makeLoadAllCountriesCases(httpClient: HttpClient = URLSessionHttpClient(),
                                    url: URL = makeDefaultCountryURL()) -> AllCountriesLoader {
         return LoadAllCountriesCases(url: url, httpClient: httpClient)
     }
     
-    static func makeLoadAllCases(worldCasesLoader: WorldCasesLoader = makeLoadWorldCases(),
+    private  static func makeLoadAllCases(worldCasesLoader: WorldCasesLoader = makeLoadWorldCases(),
                                  allCountriesLoader: AllCountriesLoader = makeLoadAllCountriesCases()) -> WorldCasesWithCountriesLoader {
         return LoadAllCases(worldCasesLoader: worldCasesLoader, allCountriesLoader: allCountriesLoader)
     }

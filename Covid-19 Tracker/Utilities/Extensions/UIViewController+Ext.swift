@@ -9,25 +9,27 @@
 import UIKit
 
 extension UIViewController {
-    func showDefaultAlertOnMainThread(title: String, message: String) {
+    func showDefaultAlertOnMainThread(title: String,
+                                      message: String,
+                                      completion: (() -> Void)? = nil) {
         if Thread.isMainThread {
-            showDefaultAlert(title: title, message: message)
+            showDefaultAlert(title: title, message: message, completion: completion)
         } else {
             DispatchQueue.main.async { [weak self] in
-                self?.showDefaultAlert(title: title, message: message)
+                self?.showDefaultAlert(title: title, message: message, completion: completion)
             }
         }
     }
     
-    private func showDefaultAlert(title: String, message: String) {
-        DispatchQueue.main.async {
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alertController.addAction(action)
-
-            self.present(alertController, animated: true, completion: nil)
-        }
+    private func showDefaultAlert(title: String,
+                                  message: String,
+                                  completion: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(action)
+        
+        self.present(alertController, animated: true, completion: completion)
     }
 
     func showLoader() {

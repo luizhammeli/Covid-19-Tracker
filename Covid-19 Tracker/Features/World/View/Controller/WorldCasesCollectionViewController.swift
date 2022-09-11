@@ -9,7 +9,11 @@
 import UIKit
 
 class WorldCasesCollectionViewController: UICollectionViewController {
-    var listSections: [WorldCasesViewListSection] = [] { didSet { collectionView.reloadData() } }
+    var listSections: [WorldCasesViewListSection] = [] {
+        didSet {
+            collectionView.reloadData()
+        }        
+    }
     var loadData: (() -> Void)?
 
     init() {
@@ -28,20 +32,20 @@ class WorldCasesCollectionViewController: UICollectionViewController {
         loadData?()
     }
 
-    func registerCells() {
+    private func registerCells() {
         collectionView.register(ChartHeaderCell.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: ChartHeaderCell.cellID)
         collectionView.register(CountryCollectionViewCell.self, forCellWithReuseIdentifier: CountryCollectionViewCell.cellID)
     }
 
-    func setupLayout() {
+    private func setupLayout() {
         navigationItem.title = Labels.covid19
         collectionView.backgroundColor = UIColor(named: Colors.background)
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 12, bottom: 30, right: 12)
     }
 
-    func setupRefreshControl() {
+    private func setupRefreshControl() {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = .lightGray
         refreshControl.addTarget(self, action: #selector(fetchCasesData), for: UIControl.Event.valueChanged)
