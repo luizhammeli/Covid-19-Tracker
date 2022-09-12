@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 final class WorldCasesViewControllerFactory {
     private init() {}
     
-    static func makeWorldCasesViewControllerFactory(loader: WorldCasesWithCountriesLoader = makeLoadAllCases()) -> WorldCasesCollectionViewController {
+    static func makeWorldCasesViewControllerFactory(loader: WorldCasesWithCountriesLoader = makeLoadAllCases(),
+                                                    imageLoader: ImageLoader = makeImageLoader()) -> WorldCasesCollectionViewController {
         let controller = WorldCasesCollectionViewController()
-        let viewAdapter = WorldCasesViewAdapter(controller: controller)
+        let viewAdapter = WorldCasesViewAdapter(controller: controller, imageLoader: MainQueueDispatchDecorator(instance: imageLoader))
         let presenter = WorldCasesPresenter(loader: MainQueueDispatchDecorator(instance: loader),
                                             alertView: WeakRefVirtualProxy(instance: controller),
                                             worldCasesView: viewAdapter,
@@ -27,12 +29,16 @@ final class WorldCasesViewControllerFactory {
         return LoadWorldCases(url: url, httpClient: httpClient)
     }
     
-    private  static func makeLoadAllCountriesCases(httpClient: HttpClient = URLSessionHttpClient(),
+    private static func makeLoadAllCountriesCases(httpClient: HttpClient = URLSessionHttpClient(),
                                    url: URL = makeDefaultCountryURL()) -> AllCountriesLoader {
         return LoadAllCountriesCases(url: url, httpClient: httpClient)
     }
     
-    private  static func makeLoadAllCases(worldCasesLoader: WorldCasesLoader = makeLoadWorldCases(),
+    private static func makeImageLoader(httpClient: HttpClient = URLSessionHttpClient()) -> ImageLoader {
+        return RemoteImageLoader(httpClient: httpClient)
+    }
+    
+    private static func makeLoadAllCases(worldCasesLoader: WorldCasesLoader = makeLoadWorldCases(),
                                  allCountriesLoader: AllCountriesLoader = makeLoadAllCountriesCases()) -> WorldCasesWithCountriesLoader {
         return LoadAllCases(worldCasesLoader: worldCasesLoader, allCountriesLoader: allCountriesLoader)
     }
@@ -53,18 +59,26 @@ final class WorldCasesViewControllerFactory {
 }
 
 final class WorldCasesViewAdapter: WorldCasesView {
-    private let controller: WorldCasesCollectionViewController
+    private weak var controller: WorldCasesCollectionViewController?
+    private var imageLoader: ImageLoader
     
-    init(controller: WorldCasesCollectionViewController) {
+    init(controller: WorldCasesCollectionViewController, imageLoader: ImageLoader) {
         self.controller = controller
+        self.imageLoader = imageLoader
     }
     
     func display(viewModel: WorldCasesViewModel) {
         guard let header = viewModel.header else { return }
-                
         let headerCellController = ChartHeaderCellController(viewModel: header, country: "World")
-        let cellControllers = viewModel.items.map { CountryCasesCellController(viewModel: $0) }
+        let cellControllers = viewModel.items.map { viewModel -> CountryCasesCellController in
+            let controller = CountryCasesCellController(viewModel: viewModel)
+            let presenter = CountryCasesCellPresenter(loader: imageLoader,
+                                                      imageView: WeakRefVirtualProxy(instance: controller),
+                                                      imageTransformer: UIImage.init)
+            controller.loadImage = presenter.loadImage
+            return controller
+        }
         
-        controller.listSections = [.init(header: headerCellController, list: cellControllers)]
+        controller?.listSections = [.init(header: headerCellController, list: cellControllers)]
     }
 }

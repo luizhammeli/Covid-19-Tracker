@@ -26,15 +26,13 @@ class CountryCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .white
         label.font = .systemFont(ofSize: 15, weight: .medium)
-        label.text = "Brazil"
         return label
     }()
 
     let totalCasesLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = .systemFont(ofSize: 13)
-        label.text = "Total Cases: 19"
+        label.font = .systemFont(ofSize: 13)        
         return label
     }()
 

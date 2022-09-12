@@ -43,6 +43,51 @@ final class UIViewControllerAlertTests: XCTestCase {
         wait(for: [exp], timeout: 1)
         XCTAssertTrue(isMainThread)
     }
+    
+    func test_showLoader_shouldShowLoader() {
+        let sut = makeSUT()
+
+        sut.showLoader()
+        
+        guard let ac = sut.view.subviews.last as? UIActivityIndicatorView else {
+            XCTFail("")
+            return
+        }
+
+        XCTAssertTrue(ac.isAnimating)
+    }
+    
+    func test_showLoader_shouldRemoveLoader() {
+        let sut = makeSUT()
+
+        sut.showLoader()
+        sut.removeLoader()
+        
+        guard let _ = sut.view.subviews.last as? UIActivityIndicatorView else { return }
+        
+        XCTFail("Loader should be removed")
+    }
+    
+    func test_showLoader_shouldRemoveLoaderInTheMainThread() {
+        let sut = makeSUT()
+
+        sut.showLoader()
+
+        let exp = expectation(description: #function)
+
+        DispatchQueue.global().async {
+            sut.removeLoader {
+                guard let _ = sut.view.subviews.last as? UIActivityIndicatorView else {
+                    XCTAssertTrue(Thread.isMainThread)
+                    exp.fulfill()
+                    return
+                }
+                XCTFail("Loader should be removed")
+            }
+        }
+        
+        wait(for: [exp], timeout: 1)
+    }
 }
 
 private extension UIViewControllerAlertTests {

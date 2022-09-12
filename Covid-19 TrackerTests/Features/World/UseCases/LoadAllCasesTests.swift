@@ -94,7 +94,6 @@ final class LoadAllCasesTests: XCTestCase {
         loadWorldSpy.complete(with: .failure(.invalidData), at: 0)
         
         wait(for: [exp], timeout: 1)
-        
     }
     
     override func waiter(_ waiter: XCTWaiter, didTimeoutWithUnfulfilledExpectations unfulfilledExpectations: [XCTestExpectation]) {

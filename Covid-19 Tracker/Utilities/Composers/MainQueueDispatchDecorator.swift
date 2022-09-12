@@ -44,3 +44,13 @@ extension MainQueueDispatchDecorator: WorldCasesWithCountriesLoader where T == W
     }
 }
 
+
+extension MainQueueDispatchDecorator: ImageLoader where T == ImageLoader {
+    func load(url: String, completion: @escaping (ImageLoader.Result) -> Void) -> ImageLoaderTask? {
+        instance.load(url: url) { [weak self] result in
+            self?.dispatch {
+                completion(result)
+            }
+        }
+    }
+}

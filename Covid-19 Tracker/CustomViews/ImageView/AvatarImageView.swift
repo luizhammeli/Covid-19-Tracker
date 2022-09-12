@@ -24,22 +24,22 @@ final class AvatarImageView: UIImageView {
         clipsToBounds = true
     }
 
-    func fetchImage(stringUrl: String) {
-        alpha = 0
-        URLSessionNetworkManager.shared.download(stringURL: stringUrl) { [weak self] result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    self?.image = image
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self?.alpha = 1
-                    })
-                }
-            case .failure:
-                break
-            }
-        }
-    }
+//    func fetchImage(stringUrl: String) {
+//        alpha = 0
+//        URLSessionNetworkManager.shared.download(stringURL: stringUrl) { [weak self] result in
+//            switch result {
+//            case .success(let image):
+//                DispatchQueue.main.async {
+//                    self?.image = image
+//                    UIView.animate(withDuration: 0.2, animations: {
+//                        self?.alpha = 1
+//                    })
+//                }
+//            case .failure:
+//                break
+//            }
+//        }
+//    }
 }
 
 

@@ -36,12 +36,15 @@ final class WorldCasesCollectionControllerUIIntegrationTests: XCTestCase {
     }
     
     func test_loadData_shouldShowAlertWhenDataRequestCompletesWithError() {
-        let (sut, spy) = makeSUT()
+        let spy = LoadAllCasesSpy()
+        let sut = WorldCasesViewControllerFactory.makeWorldCasesViewControllerFactory(loader: spy)        
+        let window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        window?.rootViewController = sut
                 
         spy.complete(with: .failure(.invalidData))
         
         let alertData = sut.fetchAlertData()
-        
         XCTAssertEqual(alertData?.title, "Error!")
         XCTAssertEqual(alertData?.message, "The data received from the server was invalid. Please try again.")
     }
@@ -100,21 +103,33 @@ final class WorldCasesCollectionControllerUIIntegrationTests: XCTestCase {
                 
         XCTAssertNil(sut.listSections.first?.header.cell)
     }
+    
+    func test_cellView_() {
+        let fakeCountryCase = [makeCountryCase().model, makeCountryCase().model]
+        let imageLoaderSpy = ImageLoaderSpy()        
+        let (sut, spy) = makeSUT(imageLoader: imageLoaderSpy)
+        
+        spy.complete(with: .success(.init(worldCases: makeWorldCases(), countryCases: fakeCountryCase)))
+        let view = sut.cell(for: IndexPath(row: 0, section: 0))
+        imageLoaderSpy.complete(with: .success(UIImage.make(withColor: .blue).pngData()!))
+                
+        XCTAssertEqual(view?.nameLabel.text, "Test")
+        XCTAssertEqual(view?.totalCasesLabel.text, "Total Cases: 10000")
+        XCTAssertNotNil(view?.flagImageView.image)
+    }
 }
 
 private extension WorldCasesCollectionControllerUIIntegrationTests {
-    func makeSUT(loadView: Bool = true) -> (WorldCasesCollectionViewController, LoadAllCasesSpy) {
+    func makeSUT(loadView: Bool = true, imageLoader: ImageLoader = ImageLoaderSpy()) -> (WorldCasesCollectionViewController, LoadAllCasesSpy) {
         let loaderSpy = LoadAllCasesSpy()
-        let controller = WorldCasesViewControllerFactory.makeWorldCasesViewControllerFactory(loader: loaderSpy)
-        
-        let window = UIWindow(frame: UIScreen.main.bounds)
-        window.makeKeyAndVisible()
-        window.rootViewController = controller
-        
+        let controller = WorldCasesViewControllerFactory.makeWorldCasesViewControllerFactory(loader: loaderSpy, imageLoader: imageLoader)
         
         if loadView {
             controller.loadViewIfNeeded()
         }
+        
+        trackForMemoryLeaks(instance: loaderSpy)
+        trackForMemoryLeaks(instance: controller)
         
         return (controller, loaderSpy)
     }

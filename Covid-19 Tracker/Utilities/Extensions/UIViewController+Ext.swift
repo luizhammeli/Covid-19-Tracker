@@ -41,12 +41,13 @@ extension UIViewController {
         activityIndicator.centerInSuperview()
     }
 
-    func removeLoader() {
+    func removeLoader(completion: (() -> Void)? = nil) {
         if Thread.isMainThread {
             removeLoaderInViewHierarchy()
         } else {
             DispatchQueue.main.async { [weak self] in
                 self?.removeLoaderInViewHierarchy()
+                completion?()
             }
         }
     }

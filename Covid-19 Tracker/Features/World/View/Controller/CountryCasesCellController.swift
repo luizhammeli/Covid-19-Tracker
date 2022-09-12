@@ -9,44 +9,58 @@
 import UIKit
 
 final class CountryCasesCellController {
+    static let cellID = "typerCllID"
+    
     private let viewModel: CountryCasesViewModel
     private var cell: CountryCollectionViewCell?
-    static let cellID = "typerCllID"
-
+    
+    var loadImage: ((String) -> Void)?
+    
     init(viewModel: CountryCasesViewModel) {
         self.viewModel = viewModel
     }
-
+    
     func view(in collectionView: UICollectionView, for indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CountryCollectionViewCell.cellID,
             for: indexPath) as? CountryCollectionViewCell else { return UICollectionViewCell() }
-
+        
         self.cell = cell
         set()
         return cell
     }
-
+    
     func set() {
         cell?.nameLabel.text = viewModel.countryName
         cell?.totalCasesLabel.text = viewModel.totalCases
-        cell?.flagImageView.fetchImage(stringUrl: viewModel.countryFlagUrl)
+        loadImage?(viewModel.countryFlagUrl)
     }
-
+    
     func sizeForItemAt(parentViewSize: CGRect) -> CGSize {
         let width = (parentViewSize.width-28)
         return CGSize(width: width, height: width*0.22)
     }
-
+    
     func insetForSection() -> UIEdgeInsets {
         return UIEdgeInsets(top: 14, left: 0, bottom: 30, right: 0)
     }
-
+    
     func cancelLoad() {
         releaseCellForReuse()
     }
-
+    
     private func releaseCellForReuse() {
         cell = nil
+    }
+}
+
+extension CountryCasesCellController: ImageView {
+    func display(image: UIImage) {
+        cell?.flagImageView.alpha = 0
+        cell?.flagImageView.image = image
+
+        UIView.animate(withDuration: 0.2, animations: { [weak self] in
+            self?.cell?.flagImageView.alpha = 1
+        })
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2022 Luiz Hammerli. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class WeakRefVirtualProxy<T: AnyObject> {
     weak var instance: T?
@@ -20,8 +20,6 @@ extension WeakRefVirtualProxy: AlertView where T: AlertView {
     func display(message: AlertViewModel) {
         instance?.display(message: message)
     }
-    
-    
 }
 
 extension WeakRefVirtualProxy: LoadingView where T: LoadingView {
@@ -30,9 +28,15 @@ extension WeakRefVirtualProxy: LoadingView where T: LoadingView {
     }
 }
 
-
 extension WeakRefVirtualProxy: HomeView where T: HomeView {
     func display(viewModel: HomeViewModel) {
         instance?.display(viewModel: viewModel)
+    }
+}
+
+extension WeakRefVirtualProxy: ImageView where T: ImageView, T.Image == UIImage {
+    typealias Image = UIImage
+    func display(image: Image) {
+        instance?.display(image: image)
     }
 }

@@ -80,7 +80,10 @@ extension WorldCasesCollectionViewController {
         listSections[indexPath.section].list[indexPath.item].cancelLoad()
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didEndDisplayingSupplementaryView view: UICollectionReusableView, forElementOfKind elementKind: String, at indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 didEndDisplayingSupplementaryView view: UICollectionReusableView,
+                                 forElementOfKind elementKind: String,
+                                 at indexPath: IndexPath) {
         listSections[indexPath.section].header.cancelLoad()
     }
 }
