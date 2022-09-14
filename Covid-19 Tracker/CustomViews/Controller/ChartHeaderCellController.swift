@@ -35,7 +35,7 @@ final class ChartHeaderCellController {
         let recoveredDataEntry = PieChartDataEntry(value: viewModel.recoveredCount)
         let deathsDataEntry = PieChartDataEntry(value: viewModel.deathsCount)
         
-        let dataSet = PieChartDataSet(entries: [activeDataEntry, recoveredDataEntry, deathsDataEntry], label: nil)
+        let dataSet = PieChartDataSet(entries: [activeDataEntry, recoveredDataEntry, deathsDataEntry], label: "")
         dataSet.highlightColor = .white
         
         let chartData = PieChartData(dataSet: dataSet)
