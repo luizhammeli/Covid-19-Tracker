@@ -13,7 +13,7 @@ final class WorldCasesViewControllerFactory {
     private init() {}
     
     static func makeWorldCasesViewControllerFactory(loader: WorldCasesWithCountriesLoader = makeLoadAllCases(),
-                                                    imageLoader: ImageLoader = makeImageLoader()) -> WorldCasesCollectionViewController {
+                                                    imageLoader: ImageLoader = makeImageLoaderComposer()) -> WorldCasesCollectionViewController {
         let controller = WorldCasesCollectionViewController()
         let viewAdapter = WorldCasesViewAdapter(controller: controller, imageLoader: MainQueueDispatchDecorator(instance: imageLoader))
         let presenter = WorldCasesPresenter(loader: MainQueueDispatchDecorator(instance: loader),
@@ -32,6 +32,19 @@ final class WorldCasesViewControllerFactory {
     private static func makeLoadAllCountriesCases(httpClient: HttpClient = URLSessionHttpClient(),
                                    url: URL = makeDefaultCountryURL()) -> AllCountriesLoader {
         return LoadAllCountriesCases(url: url, httpClient: httpClient)
+    }
+    
+    private static func makeImageLoaderComposer(primary: ImageLoader = makeLocalImageLoader(),
+                                                fallback: ImageLoader = makeImageLoaderDecorator()) -> ImageLoader {
+        return RemoteImageLoaderWithFallback(primary: primary, fallback: fallback)
+    }
+    
+    private static func makeImageLoaderDecorator(imageLoader: ImageLoader = makeImageLoader()) -> ImageLoader {
+        return ImageLoaderDecorator(instance: imageLoader)
+    }
+    
+    private static func makeLocalImageLoader(cache: CacheManager = UserDefaultsCacheManager()) -> ImageLoader {
+        return LocalImageLoader(cache: cache)
     }
     
     private static func makeImageLoader(httpClient: HttpClient = URLSessionHttpClient()) -> ImageLoader {

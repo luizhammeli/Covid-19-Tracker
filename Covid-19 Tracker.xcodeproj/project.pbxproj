@@ -70,6 +70,9 @@
 		25D9AF7424409823006BD732 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25D9AF7324409823006BD732 /* Colors.xcassets */; };
 		25D9AF7C2440A889006BD732 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */; };
 		3815ED7E2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3815ED7D2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift */; };
+		38AA638328D6C40F00918EEF /* UserDefaultCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA638228D6C40F00918EEF /* UserDefaultCacheManager.swift */; };
+		38AA638528D6C5C500918EEF /* LocalImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA638428D6C5C500918EEF /* LocalImageLoader.swift */; };
+		38AA638828D6CB7900918EEF /* RemoteImageLoaderWithFallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA638728D6CB7900918EEF /* RemoteImageLoaderWithFallback.swift */; };
 		38C18EB128C9766B008C489F /* WorldCasesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C18EB028C9766B008C489F /* WorldCasesPresenter.swift */; };
 		38C18EB528CC0ACF008C489F /* UIViewController+AlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C18EB428CC0ACF008C489F /* UIViewController+AlertTests.swift */; };
 		38C18EB928CC99A7008C489F /* WorldCasesCollectionControllerUIIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C18EB828CC99A7008C489F /* WorldCasesCollectionControllerUIIntegrationTests.swift */; };
@@ -161,6 +164,9 @@
 		25D9AF7324409823006BD732 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		25D9AF7B2440A889006BD732 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		3815ED7D2803579B0074EF3F /* LoadRemoteBrazilianCasesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadRemoteBrazilianCasesTests.swift; sourceTree = "<group>"; };
+		38AA638228D6C40F00918EEF /* UserDefaultCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultCacheManager.swift; sourceTree = "<group>"; };
+		38AA638428D6C5C500918EEF /* LocalImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageLoader.swift; sourceTree = "<group>"; };
+		38AA638728D6CB7900918EEF /* RemoteImageLoaderWithFallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageLoaderWithFallback.swift; sourceTree = "<group>"; };
 		38C18EB028C9766B008C489F /* WorldCasesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCasesPresenter.swift; sourceTree = "<group>"; };
 		38C18EB428CC0ACF008C489F /* UIViewController+AlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+AlertTests.swift"; sourceTree = "<group>"; };
 		38C18EB828CC99A7008C489F /* WorldCasesCollectionControllerUIIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCasesCollectionControllerUIIntegrationTests.swift; sourceTree = "<group>"; };
@@ -208,6 +214,7 @@
 			children = (
 				2505D29124424A5C0001EF44 /* URLSessionNetworkManager.swift */,
 				256111E72800A43B003A6B75 /* HttpError.swift */,
+				38AA638228D6C40F00918EEF /* UserDefaultCacheManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -473,6 +480,8 @@
 				258C1C5B28C7B10800968D7F /* LoadAllCountriesCases.swift */,
 				258C1C6928C910A400968D7F /* LoadAllCases.swift */,
 				25CF204A28CF6EEA00D051D5 /* RemoteImageLoader.swift */,
+				38AA638428D6C5C500918EEF /* LocalImageLoader.swift */,
+				38AA638728D6CB7900918EEF /* RemoteImageLoaderWithFallback.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -873,6 +882,7 @@
 				2505D294244256820001EF44 /* HomeViewModel.swift in Sources */,
 				38FC765E2807A6B600089A48 /* WeakRefVirtualProxy.swift in Sources */,
 				38FC76612807A7B500089A48 /* HomeControllerFactory.swift in Sources */,
+				38AA638528D6C5C500918EEF /* LocalImageLoader.swift in Sources */,
 				25C47F7E24408F5500A4F91F /* HomeViewController.swift in Sources */,
 				252793B32806F9070044CA1A /* AlertViewModel.swift in Sources */,
 				258C1C7628CBA4A300968D7F /* WorldCasesViewControllerFactory.swift in Sources */,
@@ -914,6 +924,7 @@
 				38C18EB128C9766B008C489F /* WorldCasesPresenter.swift in Sources */,
 				38FC766828098B2200089A48 /* ChartHeaderCellController.swift in Sources */,
 				38FC765928066ECC00089A48 /* CountryCasesViewModelMapper.swift in Sources */,
+				38AA638828D6CB7900918EEF /* RemoteImageLoaderWithFallback.swift in Sources */,
 				25C47F8E24408FDF00A4F91F /* MainTabBarController.swift in Sources */,
 				2524FE7E2440C381007ECF56 /* ChartHeaderCell.swift in Sources */,
 				25468393244242E2009E238A /* WorldCases.swift in Sources */,
@@ -921,6 +932,7 @@
 				252793BA2806F9570044CA1A /* HomeView.swift in Sources */,
 				25CF204B28CF6EEA00D051D5 /* RemoteImageLoader.swift in Sources */,
 				258C1C5C28C7B10800968D7F /* LoadAllCountriesCases.swift in Sources */,
+				38AA638328D6C40F00918EEF /* UserDefaultCacheManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
