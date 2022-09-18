@@ -35,12 +35,13 @@ final class WorldCasesViewControllerFactory {
     }
     
     private static func makeImageLoaderComposer(primary: ImageLoader = makeLocalImageLoader(),
-                                                fallback: ImageLoader = makeImageLoaderDecorator()) -> ImageLoader {
+                                                fallback: ImageLoader = makeImageLoaderWithCache()) -> ImageLoader {
         return RemoteImageLoaderWithFallback(primary: primary, fallback: fallback)
     }
     
-    private static func makeImageLoaderDecorator(imageLoader: ImageLoader = makeImageLoader()) -> ImageLoader {
-        return ImageLoaderDecorator(instance: imageLoader)
+    private static func makeImageLoaderWithCache(imageLoader: ImageLoader = makeImageLoader(),
+                                                 cache: CacheManager = UserDefaultsCacheManager()) -> ImageLoader {
+        return RemoteImageLoaderWithCache(imageLoader: imageLoader, cache: cache)
     }
     
     private static func makeLocalImageLoader(cache: CacheManager = UserDefaultsCacheManager()) -> ImageLoader {

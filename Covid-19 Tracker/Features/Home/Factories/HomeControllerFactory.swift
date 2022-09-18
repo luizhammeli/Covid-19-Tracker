@@ -12,7 +12,7 @@ class HomeControllerFactory {
     private init() {}
     
     static func makeHomeController(loader: CountryCasesLoader = HomeControllerFactory.makeLoadRemoteBrazialianCases()) -> HomeViewController {
-        let homeController = HomeViewController()
+        let homeController = HomeViewController()        
         let presenter = HomePresenter(loader: MainQueueDispatchDecorator(instance: loader),
                                       loadingView: WeakRefVirtualProxy(instance: homeController),
                                       homeView: HomeViewAdapter(homeController: homeController),

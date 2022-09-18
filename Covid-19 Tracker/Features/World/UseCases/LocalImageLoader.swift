@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 final class LocalImageLoader: ImageLoader {
     let cache: CacheManager
     
@@ -31,19 +29,19 @@ final class LocalImageLoader: ImageLoader {
     }
 }
 
-final class ImageLoaderDecorator<T> {
-    let instance: T
+
+final class RemoteImageLoaderWithCache: ImageLoader {
+    let imageLoader: ImageLoader
     let cache: CacheManager
     
-    init(instance: T, cache: CacheManager = UserDefaultsCacheManager()) {
-        self.instance = instance
+    init(imageLoader: ImageLoader = RemoteImageLoader(), cache: CacheManager = UserDefaultsCacheManager()) {
         self.cache = cache
+        self.imageLoader = imageLoader
     }
-}
-
-extension ImageLoaderDecorator: ImageLoader where T == ImageLoader {
+    
+    @discardableResult
     func load(url: String, completion: @escaping (ImageLoader.Result) -> Void) -> ImageLoaderTask? {
-        instance.load(url: url) {  [weak self] result in
+        imageLoader.load(url: url) {  [weak self] result in
             switch result {
             case .success(let data):
                 self?.cache.save(key: url, data: data)
