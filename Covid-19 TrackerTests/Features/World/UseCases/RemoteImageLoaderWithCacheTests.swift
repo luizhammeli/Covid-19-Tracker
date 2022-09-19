@@ -33,7 +33,7 @@ final class RemoteImageLoaderWithCacheTests: XCTestCase {
         XCTAssertTrue(cacheSpy.savedData.isEmpty)
     }
     
-    func test_load_() {
+    func test_load_shouldSucceedAndSaveCache() {
         let fakeURL = makeURL().description
         let fakeData = makeData()
         let cacheSpy = CacheSpy()

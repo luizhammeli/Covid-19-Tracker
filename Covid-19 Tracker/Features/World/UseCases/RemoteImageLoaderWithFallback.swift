@@ -17,6 +17,7 @@ final class RemoteImageLoaderWithFallback: ImageLoader {
         self.fallback = fallback
     }
 
+    @discardableResult
     func load(url: String, completion: @escaping (ImageLoader.Result) -> Void) -> ImageLoaderTask? {
         primary.load(url: url) { [weak self] result in
             switch result {
