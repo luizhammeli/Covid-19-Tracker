@@ -6,8 +6,6 @@
 //  Copyright © 2022 Luiz Hammerli. All rights reserved.
 //
 
-import Foundation
-
 import XCTest
 
 @testable import Covid_19_Tracker
@@ -32,6 +30,41 @@ final class RemoteImageLoaderWithFallbackTests: XCTestCase {
         primaryLoader.complete(with: .failure(.genericError))
                         
         XCTAssertEqual(fallbackLoader.urls, [fakeURL])
+        XCTAssertFalse(fallbackLoader.messages.isEmpty)
+    }
+    
+    func test_load_shouldSucceedWithFallbackIfPrimaryLoaderFails() {
+        var receivedResult: ImageLoader.Result?
+        let fakeData = makeData()
+        let (sut, primaryLoader, fallbackLoader) = makeSUT()
+        
+        sut.load(url: makeURL().description, completion: { receivedResult = $0 })
+        primaryLoader.complete(with: .failure(.genericError))
+        fallbackLoader.complete(with: .success(fakeData))
+                                
+        XCTAssertEqual(receivedResult, .success(fakeData))
+    }
+    
+    func test_load_shouldFailWithFallbackIfPrimaryLoaderFails() {
+        var receivedResult: ImageLoader.Result?
+        let (sut, primaryLoader, fallbackLoader) = makeSUT()
+        
+        sut.load(url: makeURL().description, completion: { receivedResult = $0 })
+        primaryLoader.complete(with: .failure(.genericError))
+        fallbackLoader.complete(with: .failure(.invalidData))
+                                
+        XCTAssertEqual(receivedResult, .failure(.invalidData))
+    }
+    
+    func test_load_shouldSucceedWithPrimaryLoader() {
+        let fakeData = makeData()
+        var receivedResult: ImageLoader.Result?
+        let (sut, primaryLoader, _) = makeSUT()
+        
+        sut.load(url: makeURL().description, completion: { receivedResult = $0 })
+        primaryLoader.complete(with: .success(fakeData))
+                                
+        XCTAssertEqual(receivedResult, .success(fakeData))
     }
 }
 
