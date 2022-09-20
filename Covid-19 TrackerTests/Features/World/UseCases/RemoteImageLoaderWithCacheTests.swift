@@ -55,19 +55,25 @@ private extension RemoteImageLoaderWithCacheTests {
         let imageLoader = ImageLoaderSpy()
         let sut = RemoteImageLoaderWithCache(imageLoader: imageLoader, cache: cache)
 
+        trackForMemoryLeaks(instance: sut)
+        trackForMemoryLeaks(instance: imageLoader)
+        
         return (sut, imageLoader)
     }
 }
 
 final class CacheSpy: CacheManager {
     var savedData: [(key: String, data: Data)] = []
+    var fetchedData: [String] = []
+    var fakeData: Data?
     
     func save(key: String, data: Data) {
         savedData.append((key: key, data: data))
     }
     
     func fetch(key: String) -> Data? {
-        return nil
+        fetchedData.append(key)
+        return fakeData
     }
     
     func delete(key: String) {

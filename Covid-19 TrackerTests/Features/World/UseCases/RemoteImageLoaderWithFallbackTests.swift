@@ -73,7 +73,11 @@ private extension RemoteImageLoaderWithFallbackTests {
         let primaryLoader = ImageLoaderSpy()
         let fallbackLoader = ImageLoaderSpy()
         let sut = RemoteImageLoaderWithFallback(primary: primaryLoader, fallback: fallbackLoader)
-
+        
+        trackForMemoryLeaks(instance: sut)
+        trackForMemoryLeaks(instance: primaryLoader)
+        trackForMemoryLeaks(instance: fallbackLoader)
+        
         return (sut, primaryLoader, fallbackLoader)
     }
 }
