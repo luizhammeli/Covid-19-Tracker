@@ -24,5 +24,3 @@ final class AvatarImageView: UIImageView {
         clipsToBounds = true
     }
 }
-
-

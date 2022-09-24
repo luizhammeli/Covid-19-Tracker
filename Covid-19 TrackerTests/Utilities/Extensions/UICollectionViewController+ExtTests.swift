@@ -44,11 +44,12 @@ private extension UICollectionViewControllerExtensionTests {
     func makeSUT() -> CollectionViewControllerSpy {
         let sut = CollectionViewControllerSpy(collectionViewLayout: UICollectionViewFlowLayout())
         sut.collectionView.refreshControl = UIRefreshControl()
+        sut.collectionView.reloadData()
         
         return sut
     }
 }
 
 final class CollectionViewControllerSpy: UICollectionViewController {
-    
+        
 }
