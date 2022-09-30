@@ -73,10 +73,12 @@ final class ImageLoaderSpy: ImageLoader {
 
 final class ImageViewSpy: ImageView {
     typealias Image = FakeImage
-    var receivedImages: [Image] = []
+    var receivedImages: [Image?] = []
     
-    func display(image: Image) {
-        receivedImages.append(image)
+    func display(image: Image?) {
+        if let image = image {
+            receivedImages.append(image)
+        }
     }
 }
 

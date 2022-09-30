@@ -36,7 +36,7 @@ extension WeakRefVirtualProxy: HomeView where T: HomeView {
 
 extension WeakRefVirtualProxy: ImageView where T: ImageView, T.Image == UIImage {
     typealias Image = UIImage
-    func display(image: Image) {
+    func display(image: Image?) {
         instance?.display(image: image)
     }
 }

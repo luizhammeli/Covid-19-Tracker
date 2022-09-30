@@ -50,14 +50,29 @@ final class CountryCasesCellController {
     }
     
     private func releaseCellForReuse() {
+        cell?.delegate = nil
         cell = nil
     }
 }
 
+extension CountryCasesCellController: CountryCollectionViewCellDelegate {
+    func didRefresh() {
+        loadImage?(viewModel.countryFlagUrl)
+    }
+}
+
 extension CountryCasesCellController: ImageView {
-    func display(image: UIImage) {
+    func display(image: UIImage?) {
+        
+        guard let image = image else {
+            cell?.refreshButton.isHidden = false
+            cell?.delegate = self
+            return
+        }
+        
         cell?.flagImageView.alpha = 0
         cell?.flagImageView.image = image
+        cell?.refreshButton.isHidden = true
 
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
             self?.cell?.flagImageView.alpha = 1
