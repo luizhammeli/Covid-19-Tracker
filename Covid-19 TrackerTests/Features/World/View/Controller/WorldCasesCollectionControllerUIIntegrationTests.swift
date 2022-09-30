@@ -106,16 +106,32 @@ final class WorldCasesCollectionControllerUIIntegrationTests: XCTestCase {
     
     func test_cellView_() {
         let fakeCountryCase = [makeCountryCase().model, makeCountryCase().model]
-        let imageLoaderSpy = ImageLoaderSpy()        
+        let imageLoaderSpy = ImageLoaderSpy()
+        let fakeImage = UIImage.make(withColor: .blue)
         let (sut, spy) = makeSUT(imageLoader: imageLoaderSpy)
         
         spy.complete(with: .success(.init(worldCases: makeWorldCases(), countryCases: fakeCountryCase)))
         let view = sut.cell(for: IndexPath(row: 0, section: 0))
-        imageLoaderSpy.complete(with: .success(UIImage.make(withColor: .blue).pngData()!))
+        imageLoaderSpy.complete(with: .success(fakeImage.pngData()!))
                 
         XCTAssertEqual(view?.nameLabel.text, "Test")
         XCTAssertEqual(view?.totalCasesLabel.text, "Total Cases: 10000")
         XCTAssertNotNil(view?.flagImageView.image)
+        XCTAssertEqual(view?.reloadButtonIsHidden, true)
+        
+    }
+    
+    func test_cellView__() {
+        let fakeCountryCase = [makeCountryCase().model, makeCountryCase().model]
+        let imageLoaderSpy = ImageLoaderSpy()
+        let (sut, spy) = makeSUT(imageLoader: imageLoaderSpy)
+        
+        spy.complete(with: .success(.init(worldCases: makeWorldCases(), countryCases: fakeCountryCase)))
+        let view = sut.cell(for: IndexPath(row: 0, section: 0))
+        imageLoaderSpy.complete(with: .failure(.invalidURL))
+
+        XCTAssertEqual(view?.reloadButtonIsHidden, false)
+        
     }
 }
 
@@ -189,6 +205,13 @@ extension WorldCasesCollectionViewController {
                         at: indexPath)
     }
 }
+
+extension CountryCollectionViewCell {
+    var reloadButtonIsHidden: Bool {
+        refreshButton.isHidden
+    }
+}
+
 
 private extension UIRefreshControl {
     func simulatePullToRefresh() {
