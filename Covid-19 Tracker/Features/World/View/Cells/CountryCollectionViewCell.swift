@@ -68,7 +68,6 @@ class CountryCollectionViewCell: UICollectionViewCell {
     }
     
     @objc private func didRefresh() {
-        print(123)
         delegate?.didRefresh()
     }
 }
@@ -119,6 +118,6 @@ extension CountryCollectionViewCell: CodeView {
     func setupAdditionalConfiguration() {
         backgroundColor = UIColor(named: "Foreground")
         layer.cornerRadius = 6
-        refreshButton.isHidden = true
+         refreshButton.isHidden = true
     }
 }

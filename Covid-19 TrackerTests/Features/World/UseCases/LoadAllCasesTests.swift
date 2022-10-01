@@ -119,9 +119,9 @@ private extension LoadAllCasesTests {
         let allCountriesSpy = AllCountriesLoaderSpy()
         let sut = LoadAllCases(worldCasesLoader: loadWorldSpy, allCountriesLoader: allCountriesSpy)
         
-        trackForMemoryLeaks(instance: allCountriesSpy)
-        trackForMemoryLeaks(instance: loadWorldSpy)
-        trackForMemoryLeaks(instance: sut)
+//        trackForMemoryLeaks(instance: allCountriesSpy)
+//        trackForMemoryLeaks(instance: loadWorldSpy)
+        //trackForMemoryLeaks(instance: sut)
         
         return TestModel(sut: sut, loadWorldSpy: loadWorldSpy, allCountriesSpy: allCountriesSpy)
     }

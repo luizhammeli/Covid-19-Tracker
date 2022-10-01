@@ -117,21 +117,31 @@ final class WorldCasesCollectionControllerUIIntegrationTests: XCTestCase {
         XCTAssertEqual(view?.nameLabel.text, "Test")
         XCTAssertEqual(view?.totalCasesLabel.text, "Total Cases: 10000")
         XCTAssertNotNil(view?.flagImageView.image)
-        XCTAssertEqual(view?.reloadButtonIsHidden, true)
-        
+    }
+    
+    
+    func test_cellView______() {
+        expectRefreshButton(hidden: true) { _ in
+        }
     }
     
     func test_cellView__() {
-        let fakeCountryCase = [makeCountryCase().model, makeCountryCase().model]
-        let imageLoaderSpy = ImageLoaderSpy()
-        let (sut, spy) = makeSUT(imageLoader: imageLoaderSpy)
-        
-        spy.complete(with: .success(.init(worldCases: makeWorldCases(), countryCases: fakeCountryCase)))
-        let view = sut.cell(for: IndexPath(row: 0, section: 0))
-        imageLoaderSpy.complete(with: .failure(.invalidURL))
-
-        XCTAssertEqual(view?.reloadButtonIsHidden, false)
-        
+        expectRefreshButton(hidden: false) { imageLoaderSpy in
+            imageLoaderSpy.complete(with: .failure(.invalidURL))
+        }
+    }
+    
+    func test_cellView____() {
+        expectRefreshButton(hidden: true) { imageLoaderSpy in
+            imageLoaderSpy.complete(with: .success(UIImage.make(withColor: .blue).pngData()!))
+        }
+    }
+    
+    func test_cellView___() {
+        expectRefreshButton(hidden: true) { imageLoaderSpy in
+            imageLoaderSpy.complete(with: .failure(.invalidURL))
+            imageLoaderSpy.complete(with: .success(UIImage.make(withColor: .blue).pngData()!))
+        }
     }
 }
 
@@ -148,6 +158,19 @@ private extension WorldCasesCollectionControllerUIIntegrationTests {
         trackForMemoryLeaks(instance: controller)
         
         return (controller, loaderSpy)
+    }
+    
+    func expectRefreshButton(hidden: Bool, when action: @escaping (ImageLoaderSpy) -> Void, file: StaticString = #filePath, line: UInt = #line) {
+        let fakeCountryCase = [makeCountryCase().model, makeCountryCase().model]
+        let imageLoaderSpy = ImageLoaderSpy()
+        let (sut, spy) = makeSUT(imageLoader: imageLoaderSpy)
+        
+        spy.complete(with: .success(.init(worldCases: makeWorldCases(), countryCases: fakeCountryCase)))
+        let view = sut.cell(for: IndexPath(row: 0, section: 0))
+        
+        action(imageLoaderSpy)
+
+        XCTAssertEqual(view?.reloadButtonIsHidden, hidden, file: file, line: line)
     }
 }
 

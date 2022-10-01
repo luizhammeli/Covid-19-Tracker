@@ -72,7 +72,7 @@ extension CountryCasesCellController: ImageView {
         
         cell?.flagImageView.alpha = 0
         cell?.flagImageView.image = image
-        cell?.refreshButton.isHidden = true
+         cell?.refreshButton.isHidden = true
 
         UIView.animate(withDuration: 0.2, animations: { [weak self] in
             self?.cell?.flagImageView.alpha = 1
